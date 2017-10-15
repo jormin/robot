@@ -1,6 +1,6 @@
 ## 关于Robot
 
-`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，【在线体验】(https://robot.lerzen.com/)。
+`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，[在线体验](https://robot.lerzen.com/)。
 
 ## 使用扩展
 
