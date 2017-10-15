@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9901db93eb22fcfbc0a9fcb2c241501f",
+    "content-hash": "dccce9c0753a38bf7f3b4ff78949095e",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -585,17 +585,71 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "jormin/laravel-tuling",
-            "version": "v1.0.1",
+            "name": "jormin/laravel-ip",
+            "version": "v1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jormin/laravel-tuling.git",
-                "reference": "10d8d37aeff0714c16f81742ea0fb66a7bcfffd4"
+                "url": "https://github.com/jormin/laravel-ip.git",
+                "reference": "4679eeb9f88c3d406c866cb12a307071f539857e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/jormin/laravel-tuling/10d8d37aeff0714c16f81742ea0fb66a7bcfffd4.zip",
-                "reference": "10d8d37aeff0714c16f81742ea0fb66a7bcfffd4",
+                "url": "https://files.phpcomposer.com/files/jormin/laravel-ip/4679eeb9f88c3d406c866cb12a307071f539857e.zip",
+                "reference": "4679eeb9f88c3d406c866cb12a307071f539857e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": "~5.6|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0||~5.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jormin\\IP\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jormin",
+                    "email": "jorminxee@gmail.com",
+                    "homepage": "https://blog.lerzen.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "解析IP地址，使用 [ipip.net](http://www.ipip.net/) 的服务。",
+            "homepage": "https://github.com/jormin/laravel-ip",
+            "keywords": [
+                "IP",
+                "Jormin",
+                "laravel"
+            ],
+            "time": "2017-04-03T05:33:53+00:00"
+        },
+        {
+            "name": "jormin/laravel-tuling",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jormin/laravel-tuling.git",
+                "reference": "3410e4769f593ba2fedf3de15ca049db8cd2f261"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/jormin/laravel-tuling/3410e4769f593ba2fedf3de15ca049db8cd2f261.zip",
+                "reference": "3410e4769f593ba2fedf3de15ca049db8cd2f261",
                 "shasum": ""
             },
             "require": {
@@ -637,7 +691,7 @@
                 "laravel",
                 "图灵"
             ],
-            "time": "2017-10-15T17:37:36+00:00"
+            "time": "2017-10-15T18:27:32+00:00"
         },
         {
             "name": "laravel/framework",

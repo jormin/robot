@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Jormin\IP\IP;
 use Jormin\TuLing\TuLing;
 
 class ChatController extends Controller
@@ -28,7 +29,8 @@ class ChatController extends Controller
         if(!$message || $userID){
             die;
         }
-        return TuLing::chat($message, $userID);
+        $location = implode('', IP::ip2addr($request->getClientIp()));
+        return TuLing::chat($message, $userID, $location);
     }
 
 }
