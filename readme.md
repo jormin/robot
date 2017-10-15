@@ -8,7 +8,7 @@
 
 ## 参考图
 
-![](https://qiniu.blog.lerzen.com/95bb00d0-161b-11e7-a852-9fb963e13414.jpg)
+![](https://qiniu.blog.lerzen.com/robot-demo.jpeg)
 
 ## License
 
