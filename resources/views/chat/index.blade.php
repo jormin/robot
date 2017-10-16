@@ -68,20 +68,11 @@
         }
 
         function uploadAudio() {
-            recorder.upload('/chat/upfile', function (state, e) {
-                switch (state) {
-                    case 'uploading':
-                        layer.msg("录音上传中...");
-                        break;
-                    case 'ok':
-                        layer.msg("录音上传成功");
-                        break;
-                    case 'error':
-                        layer.msg("录音上传失败");
-                        break;
-                    case 'cancel':
-                        layer.msg("录音上传被取消");
-                        break;
+            recorder.upload('/chat/upfile', function (msg) {
+                if(msg.status == 1){
+                    layer.msg("录音上传成功");
+                }else{
+                    layer.msg("录音上传失败");
                 }
             });
         }
@@ -125,41 +116,41 @@
 //            recorder.clear();
 //        }
 //
-//        function createDownloadLink() {
-//            recorder && recorder.exportWAV(function(blob) {
-////                var url = URL.createObjectURL(blob);
-//                var formData = new FormData();
-//                formData.append("file",blob);
-//                $.ajax({
-//                    headers: {
-//                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                    },
-//                    url : '/chat/upfile',
-//                    type : 'POST',
-//                    data : formData,
-//					// 告诉jQuery不要去处理发送的数据
-//                    processData : false,
-//					// 告诉jQuery不要去设置Content-Type请求头
-//                    contentType : false,
-//                    dataType: 'json',
-//                    beforeSend:function(){
-//                        console.log("正在进行，请稍候");
-//                    },
-//                    success : function(msg) {
-//                        __log(msg.status);
-//                        __log(msg.msg);
-//                        if(msg.status == 1){
-//                            layer.msg("录音上传成功");
-//                        }else{
-//                            layer.msg("录音上传失败");
-//                        }
-//                    },
-//                    error : function(msg) {
-//                        layer.msg(msg);
-//                    }
-//                });
-//            });
-//        }
+        function createDownloadLink() {
+            recorder && recorder.exportWAV(function(blob) {
+//                var url = URL.createObjectURL(blob);
+                var formData = new FormData();
+                formData.append("file",blob);
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url : '/chat/upfile',
+                    type : 'POST',
+                    data : formData,
+					// 告诉jQuery不要去处理发送的数据
+                    processData : false,
+					// 告诉jQuery不要去设置Content-Type请求头
+                    contentType : false,
+                    dataType: 'json',
+                    beforeSend:function(){
+                        console.log("正在进行，请稍候");
+                    },
+                    success : function(msg) {
+                        __log(msg.status);
+                        __log(msg.msg);
+                        if(msg.status == 1){
+                            layer.msg("录音上传成功");
+                        }else{
+                            layer.msg("录音上传失败");
+                        }
+                    },
+                    error : function(msg) {
+                        layer.msg(msg);
+                    }
+                });
+            });
+        }
 //
 //        window.onload = function init() {
 //            try {

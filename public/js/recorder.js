@@ -129,25 +129,30 @@
 
         //上传
         this.upload = function (url, callback) {
-            var fd = new FormData();
-            fd.append('audioData', this.getBlob());
-            var xhr = new XMLHttpRequest();
-            if (callback) {
-                xhr.upload.addEventListener('progress', function (e) {
-                    callback('uploading', e);
-                }, false);
-                xhr.addEventListener('load', function (e) {
-                    callback('ok', e);
-                }, false);
-                xhr.addEventListener('error', function (e) {
-                    callback('error', e);
-                }, false);
-                xhr.addEventListener('abort', function (e) {
-                    callback('cancel', e);
-                }, false);
-            }
-            xhr.open('POST', url);
-            xhr.send(fd);
+            var formData = new FormData();
+            formData.append('file', this.getBlob());
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url : '/chat/upfile',
+                type : 'POST',
+                data : formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData : false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType : false,
+                dataType: 'json',
+                beforeSend:function(){
+                    layer.msg("上传中...");
+                },
+                success : function(msg) {
+                    callback(msg);
+                },
+                error : function(msg) {
+                    layer.msg(msg);
+                }
+            });
         }
 
         //音频采集
