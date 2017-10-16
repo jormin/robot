@@ -29,8 +29,11 @@
 		{{--</div>--}}
 
 		<div align="center">
-			<button id="btn-recorder">record</button>
-			{{--<button onclick="stopRecording(this);" disabled>stop</button>--}}
+			<audio controls autoplay></audio>
+			<input onclick='startRecording()' type='button' value='录音' />
+			<input onclick='stopRecording()' type='button' value='停止' />
+			<input onclick='playRecording()' type='button' value='播放' />
+			<input onclick='uploadAudio()' type='button' value='提交' />
 		</div>
 
 	</div>
@@ -38,12 +41,50 @@
 	<script src='/js/fn.js'></script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 	<script src="/vendor/layer/layer.js"></script>
-	<script src="/vendor/recorder/WebAudioRecorder.js"></script>
+	<script src="/js/recorder.js"></script>
 	<script>
 
-        audioRecorder = new WebAudioRecorder($("#btn-recorder"), {
-            workerDir: "/javascripts/"     // must end with slash
-        });
+        var recorder;
+
+        var audio = document.querySelector('audio');
+
+        function startRecording() {
+            HZRecorder.get(function (rec) {
+                recorder = rec;
+                recorder.start();
+            });
+        }
+
+        function stopRecording() {
+            recorder.stop();
+        }
+
+        function playRecording() {
+            recorder.play(audio);
+        }
+
+        function uploadAudio() {
+            recorder.upload('Handler1.ashx', function (state, e) {
+                switch (state) {
+                    case 'uploading':
+                        //var percentComplete = Math.round(e.loaded * 100 / e.total) + '%';
+                        break;
+                    case 'ok':
+                        //alert(e.target.responseText);
+                        alert('上传成功');
+                        break;
+                    case 'error':
+                        alert('上传失败');
+                        break;
+                    case 'cancel':
+                        alert('上传被取消');
+                        break;
+                }
+            });
+        }
+
+	</script>
+	<script>
 
 //        var audio_context;
 //        var recorder;
