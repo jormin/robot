@@ -52,6 +52,9 @@
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
         wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
+        wx.ready(function(){
+        	$("#audio-player")[0].play();
+        });
 	</script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 </body>
