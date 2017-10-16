@@ -71,7 +71,7 @@ body {
 
 .chat-thread li.user:before {
   right: -80px;
-  background-image: url(/image/user.jpg);
+  background-image: url(/image/doudou.jpg);
   background-size: cover;
 }
 
@@ -91,7 +91,7 @@ body {
 
 .chat-thread li.robot:before {
   left: -80px;
-  background-image: url(/image/robot.jpg);
+  background-image: url(/image/guodong.jpg);
   background-size: cover;
 }
 
