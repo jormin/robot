@@ -42,7 +42,7 @@ class ChatController extends Controller
     public function upfile(Request $request){
         $return = ['status'=>0, 'msg'=>'网络超时'];
         if($request->hasFile('file')){
-            $path = $request->file('file')->store('audios/'.str_random(20).'.wav');
+            $path = $request->file('file')->store('audios/'.date('Ymd'));
             $return = ['status'=>1, 'msg'=>'上传成功', 'data'=>$path];
         }
         return json_encode($return);
