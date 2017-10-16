@@ -45,7 +45,7 @@
 	<script src="/vendor/layer/layer.js"></script>
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
-        wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), true) ?>);
+        wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
         var localId = '';
         function startRecording() {
             wx.startRecord();
@@ -94,7 +94,7 @@
         function translateAudio() {
             layer.msg("录音识别中...");
             wx.translateVoice({
-                localId: '', // 需要识别的音频的本地Id，由录音相关接口获得
+                localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
                 isShowProgressTips: 1, // 默认为1，显示进度提示
                 success: function (res) {
                     $("#message-input").val(res.translateResult);
