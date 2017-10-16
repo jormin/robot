@@ -37,7 +37,7 @@
 	<div id="voice-record-popup" class="weui-popup__container">
 		<div class="weui-popup__modal">
 			<div class="weui_msg">
-				<div class="microphone-area">
+				<div class="microphone-area" style="cursor:pointer">
 					<i class="fa fa-microphone"></i>
 				</div>
 				<div class="microphone-remark-area"><span>录音中，点击图标结束</span></div>
