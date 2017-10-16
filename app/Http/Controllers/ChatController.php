@@ -38,8 +38,7 @@ class ChatController extends Controller
      */
     public function upfile(Request $request){
         if($request->hasFile('file')){
-            dd($request->files);
-            $path = $request->file('avatar')->store(str_random(20).'.wav');
+            $path = $request->file('file')->store(str_random(20).'.wav');
         }
     }
 
