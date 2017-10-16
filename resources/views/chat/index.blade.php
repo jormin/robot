@@ -98,7 +98,9 @@
                         console.log("正在进行，请稍候");
                     },
                     success : function(msg) {
-                        if(msg.status === 1){
+                        __log(msg.status);
+                        __log(msg.msg);
+                        if(msg.status == 1){
                             layer.msg("录音上传成功");
                         }else{
                             layer.msg("录音上传失败");
