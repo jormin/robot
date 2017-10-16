@@ -29,8 +29,8 @@
 		{{--</div>--}}
 
 		<div align="center">
-			<button onclick="startRecording(this);">record</button>
-			<button onclick="stopRecording(this);" disabled>stop</button>
+			<button id="btn-recorder">record</button>
+			{{--<button onclick="stopRecording(this);" disabled>stop</button>--}}
 		</div>
 
 	</div>
@@ -38,98 +38,102 @@
 	<script src='/js/fn.js'></script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 	<script src="/vendor/layer/layer.js"></script>
-	<script src="/js/recorder.js"></script>
+	<script src="/vendor/recorder/WebAudioRecorder.js"></script>
 	<script>
 
-        var audio_context;
-        var recorder;
+        audioRecorder = new WebAudioRecorder($("#btn-recorder"), {
+            workerDir: "/javascripts/"     // must end with slash
+        });
 
-        function startUserMedia(stream) {
-            var input = audio_context.createMediaStreamSource(stream);
-            __log('Media stream created.');
-
-            // Uncomment if you want the audio to feedback directly
-            //input.connect(audio_context.destination);
-            //__log('Input connected to audio context destination.');
-
-            recorder = new Recorder(input);
-            __log('Recorder initialised.');
-        }
-
-        function startRecording(button) {
-            recorder && recorder.record();
-            button.disabled = true;
-            button.nextElementSibling.disabled = false;
-            __log('Recording...');
-            layer.msg('开始录音....');
-        }
-
-        function stopRecording(button) {
-            recorder && recorder.stop();
-            button.disabled = true;
-            button.previousElementSibling.disabled = false;
-            __log('Stopped recording.');
-            layer.msg('结束录音,开始上传....');
-
-            // create WAV download link using audio data blob
-            createDownloadLink();
-
-            recorder.clear();
-        }
-
-        function createDownloadLink() {
-            recorder && recorder.exportWAV(function(blob) {
-//                var url = URL.createObjectURL(blob);
-                var formData = new FormData();
-                formData.append("file",blob);
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url : '/chat/upfile',
-                    type : 'POST',
-                    data : formData,
-					// 告诉jQuery不要去处理发送的数据
-                    processData : false,
-					// 告诉jQuery不要去设置Content-Type请求头
-                    contentType : false,
-                    dataType: 'json',
-                    beforeSend:function(){
-                        console.log("正在进行，请稍候");
-                    },
-                    success : function(msg) {
-                        __log(msg.status);
-                        __log(msg.msg);
-                        if(msg.status == 1){
-                            layer.msg("录音上传成功");
-                        }else{
-                            layer.msg("录音上传失败");
-                        }
-                    },
-                    error : function(msg) {
-                        layer.msg(msg);
-                    }
-                });
-            });
-        }
-
-        window.onload = function init() {
-            try {
-                // webkit shim
-                window.AudioContext = window.AudioContext || window.webkitAudioContext;
-                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-                window.URL = window.URL || window.webkitURL;
-                audio_context = new AudioContext;
-                __log('Audio context set up.');
-                __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-            } catch (e) {
-                alert('No web audio support in this browser!');
-            }
-
-            navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-                __log('No live audio input: ' + e);
-            });
-        };
+//        var audio_context;
+//        var recorder;
+//
+//        function startUserMedia(stream) {
+//            var input = audio_context.createMediaStreamSource(stream);
+//            __log('Media stream created.');
+//
+//            // Uncomment if you want the audio to feedback directly
+//            //input.connect(audio_context.destination);
+//            //__log('Input connected to audio context destination.');
+//
+//            recorder = new Recorder(input);
+//            __log('Recorder initialised.');
+//        }
+//
+//        function startRecording(button) {
+//            recorder && recorder.record();
+//            button.disabled = true;
+//            button.nextElementSibling.disabled = false;
+//            __log('Recording...');
+//            layer.msg('开始录音....');
+//        }
+//
+//        function stopRecording(button) {
+//            recorder && recorder.stop();
+//            button.disabled = true;
+//            button.previousElementSibling.disabled = false;
+//            __log('Stopped recording.');
+//            layer.msg('结束录音,开始上传....');
+//
+//            // create WAV download link using audio data blob
+//            createDownloadLink();
+//
+//            recorder.clear();
+//        }
+//
+//        function createDownloadLink() {
+//            recorder && recorder.exportWAV(function(blob) {
+////                var url = URL.createObjectURL(blob);
+//                var formData = new FormData();
+//                formData.append("file",blob);
+//                $.ajax({
+//                    headers: {
+//                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+//                    },
+//                    url : '/chat/upfile',
+//                    type : 'POST',
+//                    data : formData,
+//					// 告诉jQuery不要去处理发送的数据
+//                    processData : false,
+//					// 告诉jQuery不要去设置Content-Type请求头
+//                    contentType : false,
+//                    dataType: 'json',
+//                    beforeSend:function(){
+//                        console.log("正在进行，请稍候");
+//                    },
+//                    success : function(msg) {
+//                        __log(msg.status);
+//                        __log(msg.msg);
+//                        if(msg.status == 1){
+//                            layer.msg("录音上传成功");
+//                        }else{
+//                            layer.msg("录音上传失败");
+//                        }
+//                    },
+//                    error : function(msg) {
+//                        layer.msg(msg);
+//                    }
+//                });
+//            });
+//        }
+//
+//        window.onload = function init() {
+//            try {
+//                // webkit shim
+//                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+//                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+//                window.URL = window.URL || window.webkitURL;
+//                audio_context = new AudioContext;
+//                __log('Audio context set up.');
+//                __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
+//            } catch (e) {
+//                alert('No web audio support in this browser!');
+//            }
+//
+//            navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+//                __log('No live audio input: ' + e);
+//            });
+//        };
 	</script>
 </body>
 
