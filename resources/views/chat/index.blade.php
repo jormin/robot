@@ -53,11 +53,11 @@
 	<script>
         wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
         $("#btn-record").click(function () {
-            $("#voice-record-popup").popup();
+            $("#voice-record-popup").show();
             wx.startRecord();
         })
         $(document).on("click",".microphone-area",function(){
-            $.closePopup();
+            $("#voice-record-popup").hide();
             wx.stopRecord({
                 success: function (res) {
                     var localId = res.localId;

@@ -253,7 +253,7 @@ body {
   display: none;
   width: 60%;
   height: 220px;
-  top: 28%;
+  top: 0;
   left: 20%;
 }
 .weui-popup__container, .weui-popup__overlay{
