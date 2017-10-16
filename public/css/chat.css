@@ -1,4 +1,4 @@
-@import 'http://fonts.googleapis.com/css?family=Noto+Sans';
+sw@import 'http://fonts.googleapis.com/css?family=Noto+Sans';
 body {
   padding: 0;
   margin: 0;
@@ -262,7 +262,8 @@ body {
 #voice-record-popup .weui-popup__modal{
   padding: 40px 0;
   overflow: hidden;
-  background-color: rgba(25, 147, 147, 0.2) !important;
+  background-color: #1A344B !important;
   border-radius: 10px;
   opacity: 1 !important;
+  border: 1px solid rgba(25, 147, 147, 0.3);
 }
