@@ -8,7 +8,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@ body {
 }
 
 .chat-thread {
-  margin: 24px auto 0 auto;
+  margin: 0 auto 0 auto;
   padding: 0 20px 0 0;
   list-style: none;
   overflow-y: auto;
@@ -121,7 +121,7 @@ body {
   .chat-thread {
     width: 100%;
     height: 550px;
-    padding: 0 20px;
+    padding: 20px 20px 0 20px;
   }
 
   .chat-window {
