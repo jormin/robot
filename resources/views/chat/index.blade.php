@@ -28,7 +28,7 @@
 			</div>
 		</div>
 
-		<div align="center" style="margin-bottom: 10px;">
+		<div align="center" style="bottom: 76px;position: absolute;padding: 0 65px;">
 			<audio controls autoplay style="display: none;"></audio>
 			<br>
 			<input onclick='startRecording()' type='button' value='录音' />
