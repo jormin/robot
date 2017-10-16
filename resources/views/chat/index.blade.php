@@ -34,7 +34,6 @@
 			<input onclick='startRecording()' type='button' value='录音' />
 			<input onclick='stopRecording()' type='button' value='停止' />
 			<input onclick='playRecording()' type='button' value='播放' />
-			<input onclick='uploadAudio()' type='button' value='上传' />
 			<input onclick='translateAudio()' type='button' value='识别' />
 		</div>
 
