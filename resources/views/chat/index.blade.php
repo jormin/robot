@@ -78,6 +78,9 @@
                 var formData = new FormData();
                 formData.append("file",blob);
                 $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
                     url : '/chat/upfile',
                     type : 'POST',
                     data : formData,
