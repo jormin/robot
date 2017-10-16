@@ -93,6 +93,7 @@
                     processData : false,
 					// 告诉jQuery不要去设置Content-Type请求头
                     contentType : false,
+                    dataType: 'json',
                     beforeSend:function(){
                         console.log("正在进行，请稍候");
                     },
