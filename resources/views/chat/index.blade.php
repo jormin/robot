@@ -11,7 +11,7 @@
 	<meta name="uid" value="{{$userID}}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>自动聊天室</title>
-	<link rel="stylesheet" href="/css/app.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="/css/app.css?{{ str_random(10) }}" media="screen" type="text/css" />
     <link rel="stylesheet" href="/css/chat.css?{{ str_random(10) }}" media="screen" type="text/css" />
 </head>
 
@@ -30,7 +30,7 @@
 	</div>
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
-	<script src='/js/chat.js'></script>
+	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 </body>
 
 </html>

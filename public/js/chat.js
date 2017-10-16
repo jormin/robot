@@ -1,3 +1,4 @@
+$("#chat-wrap").css("height", $(window).height()-100);
 $('#message-input').keydown(function(e){
     if(e.keyCode==13){
         robotReply();
