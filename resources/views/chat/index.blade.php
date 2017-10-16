@@ -47,12 +47,12 @@
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
 	<script src="/vendor/layer/layer.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
         wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
 	</script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
-	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
 </body>
 
 </html>
