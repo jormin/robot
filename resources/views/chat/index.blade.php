@@ -46,43 +46,13 @@
 	</div>
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
-	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 	<script src="/vendor/layer/layer.js"></script>
-	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
+	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
         wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
-        $("#btn-record").click(function () {
-            $("#voice-record-popup").show();
-            wx.startRecord();
-        })
-        $(document).on("click",".microphone-area",function(){
-            $("#voice-record-popup").hide();
-            wx.stopRecord({
-                success: function (res) {
-                    var localId = res.localId;
-                    deal_voice_record(localId);
-                }
-            });
-        })
-        wx.onVoiceRecordEnd({
-            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-            complete: function (res) {
-                var localId = res.localId;
-                deal_voice_record(localId);
-            }
-        });
-        function deal_voice_record(localId){
-            wx.translateVoice({
-                localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
-                isShowProgressTips: 1, // 默认为1，显示进度提示
-                success: function (res) {
-                    // 语音识别的结果
-                    $("#message-input").val(res.translateResult);
-                }
-            });
-        }
 	</script>
+	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 </body>
 
 </html>
