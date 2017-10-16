@@ -86,7 +86,7 @@ function deal_voice_record(localId){
         isShowProgressTips: 1, // 默认为1，显示进度提示
         success: function (res) {
             // 语音识别的结果
-            layer.msg(res.translateResult);
+            layer.msg(res);
             $('#message-input').val(res.translateResult);
             robotReply();
         }
