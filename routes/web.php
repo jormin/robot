@@ -15,4 +15,5 @@ Route::get('/', 'ChatController@index');
 Route::get('/home', 'ChatController@index');
 Route::get('/chat', 'ChatController@index');
 Route::post('/chat/robot', 'ChatController@robot');
+Route::post('/chat/upfile', 'ChatController@upfile');
 

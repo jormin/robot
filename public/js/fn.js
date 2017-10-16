@@ -48,3 +48,6 @@ $.fn.serializeJson=function(){
     });
     return serializeObj;
 };
+function __log(e, data) {
+    console.log("\n" + e + " " + (data || ''));
+}

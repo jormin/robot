@@ -33,4 +33,13 @@ class ChatController extends Controller
         return TuLing::chat($message, $userID, $location);
     }
 
+    /**
+     * 上传文件
+     */
+    public function upfile(Request $request){
+        if($request->hasFile('file')){
+            $path = $request->file('avatar')->store(str_random(20).'.wav');
+        }
+    }
+
 }
