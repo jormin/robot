@@ -93,14 +93,14 @@
                     beforeSend:function(){
                         console.log("正在进行，请稍候");
                     },
-                    success : function(responseStr) {
-                        if(responseStr.status===0){
-                            console.log("成功"+responseStr);
+                    success : function(response) {
+                        if(response.status === 1){
+                            alert("录音上传成功");
                         }else{
-                            console.log("失败");
+                            alert("录音上传失败");
                         }
                     },
-                    error : function(responseStr) {
+                    error : function(response) {
                         console.log("error");
                     }
                 });
