@@ -65,7 +65,7 @@ $("#btn-record").click(function () {
     wx.startRecord();
 })
 $(document).on("click",".microphone-area",function(){
-    $.closePopup();
+    // $.closePopup();
     wx.stopRecord({
         success: function (res) {
             var localId = res.localId;
