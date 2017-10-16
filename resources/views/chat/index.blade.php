@@ -28,8 +28,9 @@
 			{{--</div>--}}
 		{{--</div>--}}
 
-		<div align="center">
-			<audio controls autoplay></audio>
+		<div align="center" style="margin-bottom: 50px;">
+			<audio controls autoplay style="display: none;"></audio>
+			<br>
 			<input onclick='startRecording()' type='button' value='录音' />
 			<input onclick='stopRecording()' type='button' value='停止' />
 			<input onclick='playRecording()' type='button' value='播放' />
@@ -52,32 +53,34 @@
             HZRecorder.get(function (rec) {
                 recorder = rec;
                 recorder.start();
+            	layer.msg('开始录音....');
             });
         }
 
         function stopRecording() {
             recorder.stop();
+            layer.msg('结束录音');
         }
 
         function playRecording() {
             recorder.play(audio);
+            layer.msg('开始播放....');
         }
 
         function uploadAudio() {
-            recorder.upload('Handler1.ashx', function (state, e) {
+            recorder.upload('/chat/upfile', function (state, e) {
                 switch (state) {
                     case 'uploading':
-                        //var percentComplete = Math.round(e.loaded * 100 / e.total) + '%';
+                        layer.msg("录音上传中...");
                         break;
                     case 'ok':
-                        //alert(e.target.responseText);
-                        alert('上传成功');
+                        layer.msg("录音上传成功");
                         break;
                     case 'error':
-                        alert('上传失败');
+                        layer.msg("录音上传失败");
                         break;
                     case 'cancel':
-                        alert('上传被取消');
+                        layer.msg("录音上传被取消");
                         break;
                 }
             });
