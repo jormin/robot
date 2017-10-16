@@ -69,7 +69,7 @@ $(document).on("click",".microphone-area",function(){
     wx.stopRecord({
         success: function (res) {
             var localId = res.localId;
-            deal_voice_record(localId);
+            // deal_voice_record(localId);
         }
     });
 })
