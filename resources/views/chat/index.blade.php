@@ -21,20 +21,21 @@
 		<ul class="chat-thread" id="chat-wrap">
 			<li class="robot">您好，我是果冻，我们聊聊天吧～</li>
 		</ul>
-		{{--<div id="input-wrap">--}}
-			{{--<div class="input-group">--}}
-				{{--<input type="text" class="form-control" placeholder="在此输入消息" id="message-input">--}}
-				{{--<span class="input-group-addon" id="btn-send">发送</span>--}}
-			{{--</div>--}}
-		{{--</div>--}}
+		<div id="input-wrap">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="在此输入消息" id="message-input">
+				<span class="input-group-addon" id="btn-send">发送</span>
+			</div>
+		</div>
 
-		<div align="center" style="margin-bottom: 50px;">
+		<div align="center" style="margin-bottom: 10px;">
 			<audio controls autoplay style="display: none;"></audio>
 			<br>
 			<input onclick='startRecording()' type='button' value='录音' />
 			<input onclick='stopRecording()' type='button' value='停止' />
 			<input onclick='playRecording()' type='button' value='播放' />
-			<input onclick='uploadAudio()' type='button' value='提交' />
+			<input onclick='uploadAudio()' type='button' value='上传' />
+			<input onclick='translateAudio()' type='button' value='识别' />
 		</div>
 
 	</div>
@@ -42,133 +43,64 @@
 	<script src='/js/fn.js'></script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 	<script src="/vendor/layer/layer.js"></script>
-	<script src="/js/recorder.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
-
-        var recorder;
-
-        var audio = document.querySelector('audio');
-
+        wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), true) ?>);
+        var localId = '';
         function startRecording() {
-            HZRecorder.get(function (rec) {
-                recorder = rec;
-                recorder.start();
-            	layer.msg('开始录音....');
-            });
+            wx.startRecord();
+            layer.msg('开始录音....');
         }
 
         function stopRecording() {
-            recorder.stop();
-            layer.msg('结束录音');
-        }
-
-        function playRecording() {
-            recorder.play(audio);
-            layer.msg('开始播放....');
-        }
-
-        function uploadAudio() {
-            recorder.upload('/chat/upfile', function (msg) {
-                if(msg.status == 1){
-                    layer.msg("录音上传成功");
-                }else{
-                    layer.msg("录音上传失败");
+            wx.stopRecord({
+                success: function (res) {
+                    localId = res.localId;
+                    layer.msg('结束录音');
                 }
             });
         }
 
-	</script>
-	<script>
+        wx.onVoiceRecordEnd({
+            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+            complete: function (res) {
+                localId = res.localId;
+            }
+        });
 
-//        var audio_context;
-//        var recorder;
-//
-//        function startUserMedia(stream) {
-//            var input = audio_context.createMediaStreamSource(stream);
-//            __log('Media stream created.');
-//
-//            // Uncomment if you want the audio to feedback directly
-//            //input.connect(audio_context.destination);
-//            //__log('Input connected to audio context destination.');
-//
-//            recorder = new Recorder(input);
-//            __log('Recorder initialised.');
-//        }
-//
-//        function startRecording(button) {
-//            recorder && recorder.record();
-//            button.disabled = true;
-//            button.nextElementSibling.disabled = false;
-//            __log('Recording...');
-//            layer.msg('开始录音....');
-//        }
-//
-//        function stopRecording(button) {
-//            recorder && recorder.stop();
-//            button.disabled = true;
-//            button.previousElementSibling.disabled = false;
-//            __log('Stopped recording.');
-//            layer.msg('结束录音,开始上传....');
-//
-//            // create WAV download link using audio data blob
-//            createDownloadLink();
-//
-//            recorder.clear();
-//        }
-//
-        function createDownloadLink() {
-            recorder && recorder.exportWAV(function(blob) {
-//                var url = URL.createObjectURL(blob);
-                var formData = new FormData();
-                formData.append("file",blob);
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url : '/chat/upfile',
-                    type : 'POST',
-                    data : formData,
-					// 告诉jQuery不要去处理发送的数据
-                    processData : false,
-					// 告诉jQuery不要去设置Content-Type请求头
-                    contentType : false,
-                    dataType: 'json',
-                    beforeSend:function(){
-                        console.log("正在进行，请稍候");
-                    },
-                    success : function(msg) {
-                        __log(msg.status);
-                        __log(msg.msg);
-                        if(msg.status == 1){
-                            layer.msg("录音上传成功");
-                        }else{
-                            layer.msg("录音上传失败");
-                        }
-                    },
-                    error : function(msg) {
-                        layer.msg(msg);
-                    }
-                });
+        function playRecording() {
+            if(!localId){
+                layer.msg('请先开始录音');
+                return;
+			}
+            wx.playVoice({
+                localId: localId
+            });
+            layer.msg('开始播放....');
+        }
+        
+        function uploadAudio() {
+            layer.msg("录音上传中...");
+            wx.uploadVoice({
+                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    var serverId = res.serverId; // 返回音频的服务器端ID
+                    layer.msg("录音上传成功");
+                }
             });
         }
-//
-//        window.onload = function init() {
-//            try {
-//                // webkit shim
-//                window.AudioContext = window.AudioContext || window.webkitAudioContext;
-//                navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
-//                window.URL = window.URL || window.webkitURL;
-//                audio_context = new AudioContext;
-//                __log('Audio context set up.');
-//                __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'));
-//            } catch (e) {
-//                alert('No web audio support in this browser!');
-//            }
-//
-//            navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
-//                __log('No live audio input: ' + e);
-//            });
-//        };
+
+        function translateAudio() {
+            layer.msg("录音识别中...");
+            wx.translateVoice({
+                localId: '', // 需要识别的音频的本地Id，由录音相关接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                    $("#message-input").val(res.translateResult);
+                }
+            });
+		}
 	</script>
 </body>
 

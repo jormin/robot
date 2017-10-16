@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 use Jormin\IP\IP;
 use Jormin\TuLing\TuLing;
@@ -14,7 +15,9 @@ class ChatController extends Controller
      */
     public function index(){
         $userID = str_random(16);
-        return view('chat.index', compact('userID'));
+        $app = new Application(config('wechat'));
+        $wxJs = $app->js;
+        return view('chat.index', compact('userID', 'wxJs'));
     }
 
     /**

@@ -10,7 +10,8 @@
         "jormin/laravel-ip": "^1.0",
         "jormin/laravel-tuling": "^1.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "overtrue/laravel-wechat": "^3.1"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
