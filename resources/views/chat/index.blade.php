@@ -37,6 +37,7 @@
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
+	<script src="/vendor/layer/layer.js"></script>
 	<script src="/js/recorder.js"></script>
 	<script>
 
@@ -60,6 +61,7 @@
             button.disabled = true;
             button.nextElementSibling.disabled = false;
             __log('Recording...');
+            layer.msg('开始录音....');
         }
 
         function stopRecording(button) {
@@ -67,6 +69,7 @@
             button.disabled = true;
             button.previousElementSibling.disabled = false;
             __log('Stopped recording.');
+            layer.msg('结束录音,开始上传....');
 
             // create WAV download link using audio data blob
             createDownloadLink();
@@ -95,9 +98,9 @@
                     },
                     success : function(response) {
                         if(response.status === 1){
-                            alert("录音上传成功");
+                            layer.msg("录音上传成功");
                         }else{
-                            alert("录音上传失败");
+                            layer.msg("录音上传失败");
                         }
                     },
                     error : function(response) {
