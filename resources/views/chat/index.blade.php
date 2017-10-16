@@ -28,8 +28,10 @@
 			{{--</div>--}}
 		{{--</div>--}}
 
-		<button onclick="startRecording(this);">record</button>
-		<button onclick="stopRecording(this);" disabled>stop</button>
+		<div align="center">
+			<button onclick="startRecording(this);">record</button>
+			<button onclick="stopRecording(this);" disabled>stop</button>
+		</div>
 
 	</div>
 	<script src='/js/jquery.js'></script>
