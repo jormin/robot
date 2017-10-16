@@ -96,14 +96,14 @@
                     beforeSend:function(){
                         console.log("正在进行，请稍候");
                     },
-                    success : function(response) {
-                        if(response.status == 1){
+                    success : function(msg) {
+                        if(msg.status === 1){
                             layer.msg("录音上传成功");
                         }else{
                             layer.msg("录音上传失败");
                         }
                     },
-                    error : function(response) {
+                    error : function(msg) {
                         console.log("error");
                     }
                 });
