@@ -1,4 +1,4 @@
-<!DOCTYPE html>保存文件
+<!DOCTYPE html>
 <html>
 <head>
 	<!-- 声明文档使用的字符编码 -->

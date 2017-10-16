@@ -35,7 +35,7 @@ class ChatController extends Controller
 
     /**
      * 上传文件
-     * 
+     *
      * @param Request $request
      * @return string
      */
