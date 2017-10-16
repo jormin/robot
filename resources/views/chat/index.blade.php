@@ -107,7 +107,7 @@
                         }
                     },
                     error : function(msg) {
-                        console.log("error");
+                        layer.msg(msg);
                     }
                 });
             });
