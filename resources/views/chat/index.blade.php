@@ -10,7 +10,7 @@
 
 	<meta name="uid" value="{{$userID}}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>自动聊天室</title>
+	<title>果冻陪您撩</title>
 	<link rel="stylesheet" href="/css/app.css?{{ str_random(10) }}" media="screen" type="text/css" />
     <link rel="stylesheet" href="/css/chat.css?{{ str_random(10) }}" media="screen" type="text/css" />
 	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
