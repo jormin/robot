@@ -28,7 +28,7 @@
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="在此输入消息" id="message-input">
 				<span class="input-group-addon" id="btn-record">
-					<i class="fa fa-microphone"></i>
+					&nbsp;<i class="fa fa-microphone"></i>&nbsp;
 				</span>
 				<span class="input-group-addon" id="btn-send">发送</span>
 			</div>
