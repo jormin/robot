@@ -52,6 +52,11 @@ function robotReply() {
                 // 菜谱
                 break;
         }
+        if(data.audio){
+            $("#audio-player").attr("src", data.audio);
+            var player = $("#audio-player")[0];
+            player.play();
+        }
         dealScorll();
     };
     requestAjax(params, 'post', '/chat/robot', callback, false);

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3afb97e7e96182258af6e69e2319c710",
+    "content-hash": "2f4e95278129ecb965bac592c7796ea5",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -657,6 +657,59 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jormin/laravel-baidu-speech",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jormin/laravel-baidu-speech.git",
+                "reference": "7c68dd7f0667d6d3d26c06cc9da61f20da45f34d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/jormin/laravel-baidu-speech/7c68dd7f0667d6d3d26c06cc9da61f20da45f34d.zip",
+                "reference": "7c68dd7f0667d6d3d26c06cc9da61f20da45f34d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": "~5.6|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=5.4.3",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jormin\\BaiduSpeech\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jormin",
+                    "email": "jorminxee@gmail.com",
+                    "homepage": "https://blog.lerzen.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "百度语音Api集成",
+            "homepage": "https://github.com/jormin/laravel-baidu-speech",
+            "keywords": [
+                "Jormin",
+                "百度语音"
+            ],
+            "time": "2017-10-16T14:27:07+00:00"
         },
         {
             "name": "jormin/laravel-ip",

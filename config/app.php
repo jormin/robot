@@ -168,6 +168,7 @@ return [
          * Package Service Providers...
          */
         Jormin\TuLing\TuLingServiceProvider::class,
+        Jormin\BaiduSpeech\BaiduSpeechServiceProvider::class,
 
         /*
          * Application Service Providers...

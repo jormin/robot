@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
+use Jormin\BaiduSpeech\BaiduSpeech;
 use Jormin\IP\IP;
 use Jormin\TuLing\TuLing;
 
@@ -33,7 +34,14 @@ class ChatController extends Controller
             die;
         }
         $location = implode('', IP::ip2addr($request->getClientIp()));
-        return TuLing::chat($message, $userID, $location);
+        $response = TuLing::chat($message, $userID, $location);
+        if(in_array($response['code'], [100000, 200000, 302000, 308000])){
+            $return = BaiduSpeech::combine($response['text']);
+            if($return['success']){
+                $response['audio'] = '/storage/'.ltrim($return['data'], 'public');
+            }
+        }
+        return $response;
     }
 
     /**

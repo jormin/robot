@@ -44,6 +44,7 @@
 			</div>
 		</div>
 	</div>
+	<audio src="" id="audio-player" style="display: none"></audio>
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
 	<script src="/vendor/layer/layer.js"></script>
