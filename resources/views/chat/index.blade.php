@@ -13,6 +13,9 @@
 	<title>自动聊天室</title>
 	<link rel="stylesheet" href="/css/app.css?{{ str_random(10) }}" media="screen" type="text/css" />
     <link rel="stylesheet" href="/css/chat.css?{{ str_random(10) }}" media="screen" type="text/css" />
+	<link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
 </head>
 
 <body>
@@ -24,83 +27,32 @@
 		<div id="input-wrap">
 			<div class="input-group">
 				<input type="text" class="form-control" placeholder="在此输入消息" id="message-input">
+				<span class="input-group-addon" id="btn-record">
+					<i class="fa fa-microphone"></i>
+				</span>
 				<span class="input-group-addon" id="btn-send">发送</span>
 			</div>
 		</div>
-
-		<div align="center" style="bottom: 76px;position: absolute;padding: 0 55px;">
-			<audio controls autoplay style="display: none;"></audio>
-			<br>
-			<input onclick='startRecording()' type='button' value='录音' />
-			<input onclick='stopRecording()' type='button' value='停止' />
-			<input onclick='playRecording()' type='button' value='播放' />
-			<input onclick='translateAudio()' type='button' value='识别' />
+	</div>
+	<div id="voice-record-popup" class="weui-popup__container">
+		<div class="weui-popup__modal">
+			<div class="weui_msg">
+				<div class="microphone-area">
+					<i class="fa fa-microphone"></i>
+				</div>
+				<div class="microphone-remark-area"><span>录音中，点击图标结束</span></div>
+			</div>
 		</div>
-
 	</div>
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
-	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 	<script src="/vendor/layer/layer.js"></script>
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
         wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
-        var localId = '';
-        function startRecording() {
-            wx.startRecord();
-            layer.msg('开始录音....');
-        }
-
-        function stopRecording() {
-            wx.stopRecord({
-                success: function (res) {
-                    localId = res.localId;
-                    layer.msg('结束录音');
-                }
-            });
-        }
-
-        wx.onVoiceRecordEnd({
-            // 录音时间超过一分钟没有停止的时候会执行 complete 回调
-            complete: function (res) {
-                localId = res.localId;
-            }
-        });
-
-        function playRecording() {
-            if(!localId){
-                layer.msg('请先开始录音');
-                return;
-			}
-            wx.playVoice({
-                localId: localId
-            });
-            layer.msg('开始播放....');
-        }
-        
-        function uploadAudio() {
-            layer.msg("录音上传中...");
-            wx.uploadVoice({
-                localId: localId, // 需要上传的音频的本地ID，由stopRecord接口获得
-                isShowProgressTips: 1, // 默认为1，显示进度提示
-                success: function (res) {
-                    var serverId = res.serverId; // 返回音频的服务器端ID
-                    layer.msg("录音上传成功");
-                }
-            });
-        }
-
-        function translateAudio() {
-            layer.msg("录音识别中...");
-            wx.translateVoice({
-                localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
-                isShowProgressTips: 1, // 默认为1，显示进度提示
-                success: function (res) {
-                    $("#message-input").val(res.translateResult);
-                }
-            });
-		}
 	</script>
+	<script src='/js/chat.js?{{ str_random(10) }}'></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
 </body>
 
 </html>

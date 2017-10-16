@@ -228,3 +228,41 @@ body {
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomright: 5px;
 }
+
+.microphone-area{
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  background: transparent;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: center;
+}
+.microphone-area i{
+  font-size: 84px;
+  color: #09BB07;
+}
+.microphone-remark-area{
+  text-align: center;
+}
+.microphone-remark-area span{
+  color: #0AD5C1;
+  font-size: 14px;
+}
+#voice-record-popup{
+  display: none;
+  width: 60%;
+  height: 220px;
+  top: 28%;
+  left: 20%;
+}
+.weui-popup__container, .weui-popup__overlay{
+  position:absolute !important;
+}
+#voice-record-popup .weui-popup__modal{
+  padding: 40px 0;
+  overflow: hidden;
+  background-color: rgba(25, 147, 147, 0.2) !important;
+  border-radius: 10px;
+  opacity: 1 !important;
+}

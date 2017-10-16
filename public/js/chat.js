@@ -60,3 +60,33 @@ function dealScorll() {
     var chatWrapDom = $('#chat-wrap');
     chatWrapDom.scrollTop(chatWrapDom.prop("scrollHeight"))
 }
+$("#btn-record").click(function () {
+    $("#voice-record-popup").popup();
+    wx.startRecord();
+})
+$(document).on("click",".microphone-area",function(){
+    $.closePopup();
+    wx.stopRecord({
+        success: function (res) {
+            var localId = res.localId;
+            deal_voice_record(localId);
+        }
+    });
+})
+wx.onVoiceRecordEnd({
+    // 录音时间超过一分钟没有停止的时候会执行 complete 回调
+    complete: function (res) {
+        var localId = res.localId;
+        deal_voice_record(localId);
+    }
+});
+function deal_voice_record(localId){
+    wx.translateVoice({
+        localId: localId, // 需要识别的音频的本地Id，由录音相关接口获得
+        isShowProgressTips: 1, // 默认为1，显示进度提示
+        success: function (res) {
+            // 语音识别的结果
+            $("#message-input").val(res.translateResult);
+        }
+    });
+}
