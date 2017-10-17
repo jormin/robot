@@ -27,6 +27,7 @@ body {
   list-style: none;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .chat-thread li {
