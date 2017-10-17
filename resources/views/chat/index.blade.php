@@ -7,8 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<!-- 为移动设备添加 viewport -->
 	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
-	<meta name="x5-fullscreen" content="true">
-	<meta name="full-screen" content="yes">
+
 	<meta name="uid" value="{{$userID}}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>果冻陪您撩</title>
