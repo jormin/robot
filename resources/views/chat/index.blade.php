@@ -47,7 +47,6 @@
 	<audio src="" id="audio-player" style="display: none"></audio>
 	<script src='/js/jquery.js'></script>
 	<script src='/js/fn.js'></script>
-	<script src="／js/inobounce.js"></script>
 	<script src="/vendor/layer/layer.js"></script>
 	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
