@@ -14,7 +14,8 @@ function robotReply() {
     if(!message){
         return;
     }
-    var params = {'message': message ,'userID': $("meta[name=uid]").val()};
+    var config = $("#setting-form").serializeJson();
+    var params = {'message': message, 'userID': $("meta[name=uid]").val(), 'config':config};
     var userMessage = '<li class="user">'+message+'</li>';
     chatWrapDom.append(userMessage);
     messageInputDom.val('');
@@ -99,3 +100,19 @@ function deal_voice_record(localId){
 $("#btn-setting").click(function () {
     $("#setting-wrap").popup();
 })
+$("#person").select({
+    title: "选择声音",
+    items: [{title: "女声",value: "0"},{title: "男声",value: "1"},{title: "度逍遥",value: "3"},{title: "度丫丫",value: "4"}]
+});
+$("#speed").select({
+    title: "选择语速",
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+});
+$("#pitch").select({
+    title: "选择语调",
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+});
+$("#volume").select({
+    title: "选择声音",
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+});

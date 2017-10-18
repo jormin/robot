@@ -277,6 +277,25 @@ body {
   opacity: 1 !important;
   border: 1px solid rgba(25, 147, 147, 0.3);
 }
-#setting-form{
-  margin: 20px 10px;
+#setting-modal{
+  padding: 10px 0;
+}
+.weui-picker-container h1, .toolbar-inner h1{
+  margin: 0 !important;
+}
+.weui-label,.weui-cell{
+  font-weight: normal;
+}
+.weui-cell{
+  margin-bottom: 0 !important;
+}
+.weui-cell p{
+  margin: 0 !important;
+}
+.modal-content{
+  border: 0 !important;
+  padding-top: 1.7rem !important;
+}
+.toolbar .picker-button{
+  right: 6px !important;
 }
