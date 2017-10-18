@@ -217,7 +217,7 @@ body {
   box-shadow: none;
   font-size: 16px;
   height: 40px;
-  border-radius: 0;
+  border-radius: 0 !important;
   padding: 8px 20px;
   -webkit-overflow-scrolling: touch;
   border-left: 1px solid rgba(25, 147, 147, 0.3) !important;
@@ -226,6 +226,7 @@ body {
   font-size: 16px;
   color: #0AD5C1 !important;
   background-color: rgba(25, 147, 147, 0.2) !important;
+  border-radius: 0 !important;
 }
 #btn-setting,#btn-send{
   border: 0 !important;
