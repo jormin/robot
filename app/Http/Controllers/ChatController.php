@@ -38,7 +38,7 @@ class ChatController extends Controller
         $response = TuLing::chat($message, $userID, $location);
         if(in_array($response['code'], [100000, 200000, 302000, 308000])){
             $return = BaiduSpeech::combine($response['text'], $userID, 'zh', $config['speed'], $config['pitch'], $config['volume'], $config['person']);
-            if($return['success'] && $config['audioPlay'] == 'on'){
+            if($return['success'] && $config['audioPlay'] == 1){
                 $response['audio'] = '/storage/'.ltrim($return['data'], 'public');
             }
         }

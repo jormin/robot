@@ -16,6 +16,7 @@ function robotReply() {
     }
     var config = $("#setting-form").serializeJson();
     config.person = $("#person").data('values');
+    config.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
     var params = {'message': message, 'userID': $("meta[name=uid]").val(), 'config':config};
     var userMessage = '<li class="user">'+message+'</li>';
     chatWrapDom.append(userMessage);
