@@ -278,7 +278,7 @@ body {
   border: 1px solid rgba(25, 147, 147, 0.3);
 }
 #setting-modal{
-  padding: 10px 0;
+  padding: 10px 0 0 0;
 }
 .weui-picker-container h1, .toolbar-inner h1{
   margin: 0 !important;
@@ -295,6 +295,7 @@ body {
 .modal-content{
   border: 0 !important;
   padding-top: 1.7rem !important;
+  border-radius: 0;
 }
 .toolbar .picker-button{
   right: 6px !important;
