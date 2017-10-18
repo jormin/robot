@@ -107,7 +107,7 @@
         wx.ready(function(){
         	$("#audio-player")[0].play();
         });
-        var wxShareData = {{$shareData}};
+        var wxShareData = {{ json_encode($shareData) }};
         wx.onMenuShareTimeline(wxShareData);
         wx.onMenuShareAppMessage(wxShareData);
 	</script>
