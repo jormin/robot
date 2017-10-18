@@ -15,10 +15,7 @@ function robotReply() {
     if(!message){
         return;
     }
-    var config = $("#setting-form").serializeJson();
-    config.person = $("#person").data('values');
-    config.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
-    var params = {'message': message, 'userID': $("meta[name=uid]").val(), 'config':config};
+    var params = {'message': message, 'userID': $("meta[name=uid]").val()};
     var userMessage = '<li class="user">'+message+'</li>';
     chatWrapDom.append(userMessage);
     messageInputDom.val('');
@@ -133,4 +130,18 @@ $("#volume").select({
 });
 $(".setting-select").click(function () {
     $.closePopup();
+})
+$("#btn-close-popup").click(function () {
+    $.closePopup();
+    var params = $("#setting-form").serializeJson();
+    params.wechatAuth = $("#wechatAuth").data('values');
+    params.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
+    params.person = $("#person").data('values');
+    var callback = function (data) {
+        if(data.status != 1){
+            $.toast("保存配置信息失败，请刷新页面重试");
+        }
+    };
+    requestAjax(params, 'post', '/user/config', callback, false);
+
 })

@@ -51,13 +51,20 @@
 		<div class="weui-popup__modal" id="setting-modal">
 			<div class="toolbar">
 				<div class="toolbar-inner">
-					<a href="javascript:;" class="picker-button close-popup">关闭</a>
+					<a href="javascript:;" class="picker-button" id="btn-close-popup">关闭</a>
 					<h1 class="title">设置</h1>
 				</div>
 			</div>
 			<div class="modal-content">
 				<form id="setting-form">
 					<div class="weui-cells weui-cells_form">
+						<div class="weui-cell weui-cell_switch">
+							<div class="weui-cell__bd">使用微信头像</div>
+							<div class="weui-cell__ft">
+								<input class="weui-switch" name="wechatAuth" id="wechatAuth" type="checkbox">
+							</div>
+						</div>
+
 						<div class="weui-cell weui-cell_switch">
 							<div class="weui-cell__bd">语音播放</div>
 							<div class="weui-cell__ft">
