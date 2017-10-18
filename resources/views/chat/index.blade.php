@@ -69,27 +69,27 @@
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="person" class="weui-label">声音</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input" name="person" id="person" type="text" value="女声" readonly="" data-values="0">
+								<input class="weui-input" name="person" id="person" type="text" value="女声" readonly data-values="0">
 							</div>
 						</div>
 
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="speed" class="weui-label">语速</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input" name="speed" id="speed" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input" name="speed" id="speed" type="text" value="5" readonly data-values="5">
 							</div>
 						</div>
 
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="pitch" class="weui-label">语调</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input" name="pitch" id="pitch" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input" name="pitch" id="pitch" type="text" value="5" readonly data-values="5">
 							</div>
 						</div>
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="volume" class="weui-label">音量</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input" name="volume" id="volume" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input" name="volume" id="volume" type="text" value="5" readonly data-values="5">
 							</div>
 						</div>
 					</div>
