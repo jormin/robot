@@ -102,17 +102,32 @@ $("#btn-setting").click(function () {
 })
 $("#person").select({
     title: "选择声音",
-    items: [{title: "女声",value: "0"},{title: "男声",value: "1"},{title: "度逍遥",value: "3"},{title: "度丫丫",value: "4"}]
+    items: [{title: "女声",value: "0"},{title: "男声",value: "1"},{title: "度逍遥",value: "3"},{title: "度丫丫",value: "4"}],
+    onClose: function () {
+        $("#setting-wrap").popup();
+    }
 });
 $("#speed").select({
     title: "选择语速",
-    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    onClose: function () {
+        $("#setting-wrap").popup();
+    }
 });
 $("#pitch").select({
     title: "选择语调",
-    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    onClose: function () {
+        $("#setting-wrap").popup();
+    }
 });
 $("#volume").select({
     title: "选择声音",
-    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+    items: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
+    beforeClose: function () {
+        $("#setting-wrap").popup();
+    }
 });
+$(".setting-select").click(function () {
+    $.closePopup();
+})

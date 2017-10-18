@@ -34,7 +34,6 @@ class ChatController extends Controller
         if(!$message || $userID || !$config){
             die;
         }
-        $config = json_decode($config, true);
         $location = implode('', IP::ip2addr($request->getClientIp()));
         $response = TuLing::chat($message, $userID, $location);
         if(in_array($response['code'], [100000, 200000, 302000, 308000])){
