@@ -1,8 +1,9 @@
 $("#chat-wrap").css('height', $(window).height()-40);
-$('#message-input').keydown(function(e){
-    if(e.keyCode==13){
-        // robotReply();
-    }
+$('#message-input').on('click', function(e){
+    var target = this;
+    setTimeout(function(){
+            target.scrollIntoView(true);
+    },100);
 });
 $("#btn-send").click(function () {
     robotReply();
