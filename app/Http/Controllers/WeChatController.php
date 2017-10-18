@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
  * Class WechatController
  * @package App\Http\Controllers
  */
-class WechatController extends Controller
+class WeChatController extends Controller
 {
     /**
      * 处理微信的请求消息
