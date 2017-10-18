@@ -25,14 +25,14 @@
 		</ul>
 		<div id="input-wrap">
 			<div class="input-group">
-				<input type="text" class="form-control" placeholder="在此输入消息" id="message-input">
+				<textarea class="weui-textarea" placeholder="在此输入消息" rows="3" id="message-input"></textarea>
+
 				<span class="input-group-addon" id="btn-record">
 					&nbsp;<i class="fa fa-microphone"></i>&nbsp;
 				</span>
 				<span class="input-group-addon" id="btn-setting">
 					&nbsp;<i class="fa fa-cog"></i>&nbsp;
 				</span>
-				<span class="input-group-addon" id="btn-send">发送</span>
 			</div>
 		</div>
 	</div>

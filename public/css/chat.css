@@ -7,10 +7,6 @@ body {
   background-attachment: fixed;
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-
 ::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: rgba(25, 147, 147, 0.1);
@@ -212,7 +208,7 @@ body {
   bottom: 0;
   padding: 20px 52px;
 }
-#input-wrap input{
+#input-wrap input,textarea{
   color: #0AD5C1 !important;
   background-color: rgba(25, 147, 147, 0.2) !important;
   border: 0 !important;
@@ -224,6 +220,7 @@ body {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   padding: 16px 20px;
+  -webkit-overflow-scrolling: touch;
 }
 #input-wrap span{
   font-size: 16px;
@@ -234,7 +231,7 @@ body {
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomright: 5px;
 }
-#btn-send{
+#btn-setting{
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
