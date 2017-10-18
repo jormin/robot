@@ -107,7 +107,13 @@
         wx.ready(function(){
         	$("#audio-player")[0].play();
         });
-        var wxShareData = {!! json_encode($shareData) !!};
+
+        var wxShareData = {
+            title: '{{config('app.name')}}',
+            desc: '{{config('app.welcome')}}',
+            link: '{{config('app.url')}}',
+            imgUrl: '{{config('app.share_icon')}}',
+        };
         wx.onMenuShareTimeline(wxShareData);
         wx.onMenuShareAppMessage(wxShareData);
 	</script>

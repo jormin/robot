@@ -18,13 +18,7 @@ class ChatController extends Controller
         $userID = str_random(16);
         $app = new Application(config('wechat'));
         $wxJs = $app->js;
-        $shareData = [
-            'title' => config('app.name'),
-            'desc' => config('app.welcome'),
-            'link' => config('app.url'),
-            'imgUrl' => config('app.share_icon')
-        ];
-        return view('chat.index', compact('userID', 'wxJs', 'shareData'));
+        return view('chat.index', compact('userID', 'wxJs'));
     }
 
     /**
