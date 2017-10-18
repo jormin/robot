@@ -11,9 +11,13 @@
 |
 */
 Route::any('/wechat', 'WeChatController@serve');
-Route::get('/', 'ChatController@index');
-Route::get('/home', 'ChatController@index');
-Route::get('/chat', 'ChatController@index');
-Route::post('/chat/robot', 'ChatController@robot');
-Route::post('/chat/upfile', 'ChatController@upfile');
+
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('/', 'ChatController@index');
+    Route::get('/home', 'ChatController@index');
+    Route::get('/chat', 'ChatController@index');
+    Route::post('/chat/robot', 'ChatController@robot');
+    Route::get('/user/index', 'UserController@index');
+    Route::post('/user/config', 'UserController@config');
+});
 
