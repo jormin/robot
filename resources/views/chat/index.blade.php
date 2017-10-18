@@ -21,7 +21,7 @@
 <body>
 	<div>
 		<ul class="chat-thread" id="chat-wrap">
-			<li class="robot">您好，我是果冻，我们聊聊天吧～</li>
+			<li class="robot">{{config('app.welcome') }}</li>
 		</ul>
 		<div id="input-wrap">
 			<div class="input-group">
@@ -103,10 +103,13 @@
 	<script src="https://cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
-        wx.config(<?php echo $wxJs->config(array('startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
+        wx.config(<?php echo $wxJs->config(array('onMenuShareTimeline', 'onMenuShareAppMessage', 'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
         wx.ready(function(){
         	$("#audio-player")[0].play();
         });
+        var wxShareData = {{$shareData}};
+        wx.onMenuShareTimeline(wxShareData);
+        wx.onMenuShareAppMessage(wxShareData);
 	</script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 </body>
