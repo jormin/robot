@@ -25,5 +25,6 @@ class UserController extends BaseController
     public function index(){
         $user = session('wechat.oauth_user');
         dd($user);
+        dd($this->user);
     }
 }
