@@ -18,7 +18,7 @@ class WeChatController extends Controller
     public function serve(Request $request)
     {
         if($request->isMethod('get')){
-            die($request->echoStr);
+            die($request->echostr);
         }
     }
 }
