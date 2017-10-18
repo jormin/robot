@@ -106,16 +106,15 @@
         wx.config(<?php echo $wxJs->config(array('onMenuShareTimeline', 'onMenuShareAppMessage', 'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
         wx.ready(function(){
         	$("#audio-player")[0].play();
+            var wxShareData = {
+                title: '{{config('app.name')}}',
+                desc: '{{config('app.welcome')}}',
+                link: '{{config('app.url')}}',
+                imgUrl: '{{config('app.share_icon')}}',
+            };
+            wx.onMenuShareTimeline(wxShareData);
+            wx.onMenuShareAppMessage(wxShareData);
         });
-
-        var wxShareData = {
-            title: '{{config('app.name')}}',
-            desc: '{{config('app.welcome')}}',
-            link: '{{config('app.url')}}',
-            imgUrl: '{{config('app.share_icon')}}',
-        };
-        wx.onMenuShareTimeline(wxShareData);
-        wx.onMenuShareAppMessage(wxShareData);
 	</script>
 	<script src='/js/chat.js?{{ str_random(10) }}'></script>
 </body>
