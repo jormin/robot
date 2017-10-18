@@ -216,9 +216,9 @@ body {
   -moz-border-radius-bottomleft: 5px;
   box-shadow: none;
   font-size: 16px;
-  height: 52px;
+  height: 40px;
   border-radius: 0;
-  padding: 12px 20px;
+  padding: 6px 20px;
   -webkit-overflow-scrolling: touch;
   border-left: 1px solid rgba(25, 147, 147, 0.3) !important;
 }
