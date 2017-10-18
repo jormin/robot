@@ -62,12 +62,12 @@ body {
   -moz-animation: show-chat-odd 0.15s 1 ease-in;
   -webkit-animation: show-chat-odd 0.15s 1 ease-in;
   float: right;
-  margin-right: 80px;
+  margin-right: 60px;
   color: #0AD5C1;
 }
 
 .chat-thread li.user:before {
-  right: -80px;
+  right: -60px;
   background-image: url(/image/doudou.jpg);
   background-size: cover;
 }
