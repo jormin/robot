@@ -226,13 +226,13 @@ body {
   font-size: 16px;
   color: #0AD5C1 !important;
   background-color: rgba(25, 147, 147, 0.2) !important;
+}
+#btn-setting,#btn-send{
   border: 0 !important;
   border-left: 1px solid rgba(25, 147, 147, 0.3) !important;
-  -moz-border-radius-topright: 5px;
-  -moz-border-radius-bottomright: 5px;
 }
 #btn-record{
-  border-left:0 !important;
+  border: 0 !important;
 }
 
 .microphone-area{
