@@ -294,8 +294,9 @@ body {
 }
 .modal-content{
   border: 0 !important;
-  padding-top: 1.7rem !important;
+  padding-top: 1.75rem !important;
   border-radius: 0;
+  border-top: 1px solid #d9d9d9;
 }
 .toolbar .picker-button{
   right: 6px !important;
