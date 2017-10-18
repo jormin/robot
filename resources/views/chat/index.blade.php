@@ -30,6 +30,9 @@
 				<span class="input-group-addon" id="btn-record">
 					&nbsp;<i class="fa fa-microphone"></i>&nbsp;
 				</span>
+				<span class="input-group-addon" id="btn-setting">
+					&nbsp;<i class="fa fa-cog"></i>&nbsp;
+				</span>
 				<span class="input-group-addon" id="btn-send">发送</span>
 			</div>
 		</div>
@@ -42,6 +45,74 @@
 				</div>
 				<div class="microphone-remark-area"><span>录音中，点击图标结束</span></div>
 			</div>
+		</div>
+	</div>
+	<div id="setting-wrap" class="weui-popup__container">
+		<div class="weui-popup__overlay"></div>
+		<div class="weui-popup__modal">
+
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell weui-cell_switch">
+					<div class="weui-cell__bd">语音播放</div>
+					<div class="weui-cell__ft">
+						<input class="weui-switch" type="checkbox" checked>
+					</div>
+				</div>
+			</div>
+
+			<div class="weui-cell weui-cell_select weui-cell_select-after">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">声音</label>
+				</div>
+				<div class="weui-cell__bd">
+					<select class="weui-select" name="select2">
+						<option value="0">女声</option>
+						<option value="1">男声</option>
+						<option value="3">度逍遥</option>
+						<option value="4">度丫丫</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="weui-cell weui-cell_select weui-cell_select-after">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">语速</label>
+				</div>
+				<div class="weui-cell__bd">
+					<select class="weui-select" name="select2">
+						@for($i=0; $i<10; $i++)
+							<option value="{{ $i }}" @if($i==5) selected @endif>{{ $i }}</option>
+						@endfor
+					</select>
+				</div>
+			</div>
+
+			<div class="weui-cell weui-cell_select weui-cell_select-after">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">语调</label>
+				</div>
+				<div class="weui-cell__bd">
+					<select class="weui-select" name="select2">
+						@for($i=0; $i<10; $i++)
+							<option value="{{ $i }}" @if($i==5) selected @endif>{{ $i }}</option>
+						@endfor
+					</select>
+				</div>
+			</div>
+
+			<div class="weui-cell weui-cell_select weui-cell_select-after">
+				<div class="weui-cell__hd">
+					<label for="" class="weui-label">音量</label>
+				</div>
+				<div class="weui-cell__bd">
+					<select class="weui-select" name="select2">
+						@for($i=0; $i<16; $i++)
+							<option value="{{ $i }}" @if($i==5) selected @endif>{{ $i }}</option>
+						@endfor
+					</select>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<audio src="" id="audio-player" style="display: none"></audio>

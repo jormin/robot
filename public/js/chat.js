@@ -96,3 +96,6 @@ function deal_voice_record(localId){
         }
     });
 }
+$("#btn-setting").click(function () {
+    $("#setting-wrap").popup();
+})
