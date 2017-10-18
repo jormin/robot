@@ -14,6 +14,7 @@ class BaseController extends Controller
     function __construct()
     {
         $this->wechatUserInfo = session('wechat.oauth_user');
+        dd($this->wechatUserInfo);
         $openID = $this->wechatUserInfo['id'];
         $user = User::getUserByOpenID($openID);
         if(!$user){
