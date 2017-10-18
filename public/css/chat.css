@@ -300,3 +300,6 @@ body {
 .toolbar .picker-button{
   right: 6px !important;
 }
+.setting-select{
+  -webkit-user-select:none
+}
