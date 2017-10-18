@@ -30,7 +30,7 @@ body {
   position: relative;
   clear: both;
   display: inline-block;
-  padding: 16px 40px 16px 20px;
+  padding: 10px 20px;
   margin: 0 0 20px 0;
   font: 16px/20px 'Noto Sans', sans-serif;
   border-radius: 10px;
@@ -41,8 +41,8 @@ body {
 .chat-thread li:before {
   position: absolute;
   top: 0;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
   content: '';
 }
@@ -50,7 +50,7 @@ body {
 /* Chat - Speech Bubble Arrow */
 .chat-thread li:after {
   position: absolute;
-  top: 15px;
+  top: 10px;
   content: '';
   width: 0;
   height: 0;
@@ -82,12 +82,12 @@ body {
   -moz-animation: show-chat-even 0.15s 1 ease-in;
   -webkit-animation: show-chat-even 0.15s 1 ease-in;
   float: left;
-  margin-left: 80px;
+  margin-left: 60px;
   color: #0EC879;
 }
 
 .chat-thread li.robot:before {
-  left: -80px;
+  left: -60px;
   background-image: url(/image/guodong.jpg);
   background-size: cover;
 }
@@ -206,7 +206,7 @@ body {
 #input-wrap{
   position: absolute;
   bottom: 0;
-  padding: 20px 52px;
+  padding: 20px 0 0 0;
 }
 #input-wrap input,textarea{
   color: #0AD5C1 !important;
@@ -217,12 +217,10 @@ body {
   box-shadow: none;
   font-size: 16px;
   height: 52px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding: 16px 20px;
+  border-radius: 0;
+  padding: 12px 20px;
   -webkit-overflow-scrolling: touch;
+  border-left: 1px solid rgba(25, 147, 147, 0.3) !important;
 }
 #input-wrap span{
   font-size: 16px;
@@ -233,7 +231,7 @@ body {
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomright: 5px;
 }
-#btn-setting{
+#btn-send{
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
