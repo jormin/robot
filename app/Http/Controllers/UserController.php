@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
-use Jormin\BaiduSpeech\BaiduSpeech;
-use Jormin\IP\IP;
-use Jormin\TuLing\TuLing;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
 
     /**
@@ -27,7 +23,7 @@ class UserController extends Controller
      *
      */
     public function index(){
-        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+        $user = session('wechat.oauth_user');
         dd($user);
     }
 }

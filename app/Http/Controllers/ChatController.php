@@ -8,14 +8,15 @@ use Jormin\BaiduSpeech\BaiduSpeech;
 use Jormin\IP\IP;
 use Jormin\TuLing\TuLing;
 
-class ChatController extends Controller
+class ChatController extends BaseController
 {
 
     /**
      * 聊天界面
      */
     public function index(){
-        $userID = str_random(16);
+        $user = session('wechat.oauth_user');
+        $userID = $user['id'];
         $app = new Application(config('wechat'));
         $wxJs = $app->js;
         return view('chat.index', compact('userID', 'wxJs'));

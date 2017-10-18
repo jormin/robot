@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 根据OPENID查询用户
+     *
+     * @param $openID
+     * @return \Illuminate\Database\Eloquent\Model|null|static
+     */
+    public static function getUserByOpenID($openID){
+        $user = self::query()->where('openID', $openID)->first();
+        return $user;
+    }
 }
