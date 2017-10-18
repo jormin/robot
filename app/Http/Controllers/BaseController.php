@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
@@ -11,11 +12,12 @@ class BaseController extends Controller
     /**
      * BaseController constructor.
      */
-    function __construct()
+    function __construct(Request $request)
     {
         $this->middleware('web');
         $this->middleware('wechat.oauth');
         $this->wechatUserInfo = session('wechat.oauth_user');
+        dd(session('wechat.oauth_user'));
         $openID = $this->wechatUserInfo['id'];
         $user = User::getUserByOpenID($openID);
         if(!$user){
