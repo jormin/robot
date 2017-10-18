@@ -19,7 +19,9 @@
 </head>
 
 <body>
-
+	<div style="display: none;">
+		<img src="/image/guodong.jpg" >
+	</div>
 	<div>
 		<ul class="chat-thread" id="chat-wrap">
 			<li class="robot">您好，我是果冻，我们聊聊天吧～</li>
