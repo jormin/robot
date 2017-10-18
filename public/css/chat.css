@@ -231,9 +231,8 @@ body {
   -moz-border-radius-topright: 5px;
   -moz-border-radius-bottomright: 5px;
 }
-#btn-send{
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+#btn-record{
+  border-left:0 !important;
 }
 
 .microphone-area{
