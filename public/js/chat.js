@@ -2,7 +2,7 @@ if($("#wechatAuth").is(':checked')){
     enableUserAvatar();
 }
 function enableUserAvatar() {
-    $('head').append("<style id='user-style'>.chat-thread li.user:before{background-image:url(http://wx.qlogo.cn/mmopen/vi_32/sGcQQ61NTDjmTiahCgEQldhdHoCpFCbiaU7O8RG0d805oIicrkNaXkM1e5LDgXhkH1mjc990u1yGsWXNxZqDnJ7yA/0) }</style>");
+    $('head').append("<style id='user-style'>.chat-thread li.user:before{background-image:url("+wechatAvatar+") }</style>");
 }
 $("#chat-wrap").css('height', $(window).height()-40);
 $('#message-input').on('click', function(e){
