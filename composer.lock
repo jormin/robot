@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "26ee18386b5bf9959df266c04de78934",
+    "content-hash": "794b9d201e0eedff236a82c33589d445",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1063,16 +1063,16 @@
         },
         {
             "name": "jormin/laravel-baidu-speech",
-            "version": "v1.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jormin/laravel-baidu-speech.git",
-                "reference": "7c68dd7f0667d6d3d26c06cc9da61f20da45f34d"
+                "reference": "6fd3b764466954a058924ed11f9fd5ceed52182b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/jormin/laravel-baidu-speech/7c68dd7f0667d6d3d26c06cc9da61f20da45f34d.zip",
-                "reference": "7c68dd7f0667d6d3d26c06cc9da61f20da45f34d",
+                "url": "https://files.phpcomposer.com/files/jormin/laravel-baidu-speech/6fd3b764466954a058924ed11f9fd5ceed52182b.zip",
+                "reference": "6fd3b764466954a058924ed11f9fd5ceed52182b",
                 "shasum": ""
             },
             "require": {
@@ -1112,7 +1112,7 @@
                 "Jormin",
                 "百度语音"
             ],
-            "time": "2017-10-16T14:27:07+00:00"
+            "time": "2017-10-19T07:29:43+00:00"
         },
         {
             "name": "jormin/laravel-ip",
@@ -1787,6 +1787,94 @@
             "time": "2017-10-05T07:30:15+00:00"
         },
         {
+            "name": "overtrue/flysystem-qiniu",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/flysystem-qiniu.git",
+                "reference": "e370ece2e6480d7e560727efd01399d7fcf5bdc8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/overtrue/flysystem-qiniu/e370ece2e6480d7e560727efd01399d7fcf5bdc8.zip",
+                "reference": "e370ece2e6480d7e560727efd01399d7fcf5bdc8",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^1.0",
+                "php": ">=5.5.9",
+                "qiniu/php-sdk": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.0.x-dev",
+                "php": ">=5.6.0",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\Flysystem\\Qiniu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "Flysystem adapter for the Qiniu storage.",
+            "time": "2017-09-11T12:00:06+00:00"
+        },
+        {
+            "name": "overtrue/laravel-filesystem-qiniu",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/laravel-filesystem-qiniu.git",
+                "reference": "62646198d7525c1b56cf267201225d164745cc80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/overtrue/laravel-filesystem-qiniu/62646198d7525c1b56cf267201225d164745cc80.zip",
+                "reference": "62646198d7525c1b56cf267201225d164745cc80",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem": "^1.0",
+                "overtrue/flysystem-qiniu": "^1.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Overtrue\\LaravelFilesystem\\Qiniu\\QiniuStorageServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\LaravelFilesystem\\Qiniu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "overtrue",
+                    "email": "i@overtrue.me"
+                }
+            ],
+            "description": "A Qiniu storage filesystem for Laravel.",
+            "time": "2017-08-25T10:47:28+00:00"
+        },
+        {
             "name": "overtrue/laravel-wechat",
             "version": "3.1.10",
             "source": {
@@ -2310,6 +2398,57 @@
                 "shell"
             ],
             "time": "2017-10-14T17:14:13+00:00"
+        },
+        {
+            "name": "qiniu/php-sdk",
+            "version": "v7.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qiniu/php-sdk.git",
+                "reference": "8c7ba738bd4443ee3569a07441913b07c4b2c4a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/qiniu/php-sdk/8c7ba738bd4443ee3569a07441913b07c4b2c4a2.zip",
+                "reference": "8c7ba738bd4443ee3569a07441913b07c4b2c4a2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qiniu\\": "src/Qiniu"
+                },
+                "files": [
+                    "src/Qiniu/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Qiniu",
+                    "email": "sdk@qiniu.com",
+                    "homepage": "http://www.qiniu.com"
+                }
+            ],
+            "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+            "homepage": "http://developer.qiniu.com/",
+            "keywords": [
+                "cloud",
+                "qiniu",
+                "sdk",
+                "storage"
+            ],
+            "time": "2017-08-26T00:46:11+00:00"
         },
         {
             "name": "ramsey/uuid",
