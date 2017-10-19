@@ -114,6 +114,7 @@
 	<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 	<script>
 		var domain = '{{config('app.url')}}';
+        var wechatAvatar = '{{$user->avatar}}';
         wx.config(<?php echo $wxJs->config(array('onMenuShareTimeline', 'onMenuShareAppMessage', 'startRecord', 'stopRecord', 'onVoiceRecordEnd', 'playVoice', 'pauseVoice', 'stopVoice', 'onVoicePlayEnd', 'uploadVoice', 'translateVoice'), false) ?>);
         wx.ready(function(){
         	$("#audio-player")[0].play();

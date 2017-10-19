@@ -18,7 +18,8 @@ class ChatController extends BaseController
         $app = new Application(config('wechat'));
         $wxJs = $app->js;
         $config = json_decode($this->userConfig->config, true);
-        return view('chat.index', compact('wxJs', 'config'));
+        $user = $this->user;
+        return view('chat.index', compact('wxJs', 'config', 'user'));
     }
 
     /**

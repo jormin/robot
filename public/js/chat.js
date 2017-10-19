@@ -1,3 +1,6 @@
+if($("#wechatAuth").is(':checked')){
+    $("li.user:before").css('background-image', 'url('+wechatAvatar+')');
+}
 $("#chat-wrap").css('height', $(window).height()-40);
 $('#message-input').on('click', function(e){
     var target = this;
