@@ -55,6 +55,7 @@ class BaseController extends Controller
                 DB::beginTransaction();
                 $user = new User();
                 if($isAuth){
+                    dd($userData);
                     foreach ($userData as $key => $value){
                         $user->$key = $value;
                     }
