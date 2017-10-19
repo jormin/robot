@@ -186,6 +186,8 @@ return [
         Jormin\TuLing\TuLingServiceProvider::class,
         Jormin\BaiduSpeech\BaiduSpeechServiceProvider::class,
         Overtrue\LaravelWeChat\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
 
         /*
          * Application Service Providers...

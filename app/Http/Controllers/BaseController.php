@@ -16,6 +16,7 @@ class BaseController extends Controller
     {
         $this->middleware('web');
         $this->middleware('wechat.oauth');
+        
         $this->wechatUserInfo = session('wechat.oauth_user');
         dd(session('wechat.oauth_user'));
         $openID = $this->wechatUserInfo['id'];
