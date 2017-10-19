@@ -1,7 +1,3 @@
-$("#setting-form").submit(function () {
-    alert(1);
-    return false;
-});
 if($("#wechatAuth").is(':checked')){
     $("li.user:before").css('background-image', 'url('+wechatAvatar+')');
 }

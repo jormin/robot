@@ -17,6 +17,7 @@ class BaseController extends Controller
      */
     function __construct(Request $request)
     {
+        dd(1);
         // 开启微信授权
         $isAuth = $request->has('wechatAuth') && $request->get('wechatAuth') == 1;
         if($request->ajax() && $isAuth){
