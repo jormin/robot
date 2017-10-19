@@ -13,7 +13,7 @@ class UserController extends BaseController
      * @param Request $request
      */
     public function config(Request $request){
-        $config = $request->config;
+        $config = $request->all();
         if(!$config || !is_array($config)){
             $this->error('参数错误');
         }
