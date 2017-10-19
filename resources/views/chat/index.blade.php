@@ -50,7 +50,7 @@
 		<div class="weui-popup__modal" id="setting-modal">
 			<div class="toolbar">
 				<div class="toolbar-inner">
-					<a href="javascript:;" class="picker-button" id="btn-close-popup">关闭</a>
+					<a href="javascript:;" class="picker-button" id="btn-close-popup">保存</a>
 					<h1 class="title">设置</h1>
 				</div>
 			</div>
