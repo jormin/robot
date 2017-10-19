@@ -1,5 +1,5 @@
 if($("#wechatAuth").is(':checked')){
-    $('head').append("<style>li.user:before{background-image:url(http://wx.qlogo.cn/mmopen/vi_32/sGcQQ61NTDjmTiahCgEQldhdHoCpFCbiaU7O8RG0d805oIicrkNaXkM1e5LDgXhkH1mjc990u1yGsWXNxZqDnJ7yA/0) !important }</style>");
+    $('head').append("<style id='user-style'>li.user:before{background-image:url(http://wx.qlogo.cn/mmopen/vi_32/sGcQQ61NTDjmTiahCgEQldhdHoCpFCbiaU7O8RG0d805oIicrkNaXkM1e5LDgXhkH1mjc990u1yGsWXNxZqDnJ7yA/0) }</style>");
 }
 $("#chat-wrap").css('height', $(window).height()-40);
 $('#message-input').on('click', function(e){
@@ -145,6 +145,9 @@ $("#btn-close-popup").click(function () {
             $.toast('保存成功', function () {
                 if(data.data.auth === 1){
                     window.location.href = domain+'?wechatAuth=1';
+                }
+                if(params.wechatAuth === 0){
+                    $("#user-style").remove();
                 }
             });
         }else{
