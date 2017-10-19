@@ -28,8 +28,8 @@ class ChatController extends BaseController
      */
     public function robot(Request $request){
         $message = $request->message;
-        $config = $request->config;
-        if(!$message || !$config){
+        $config = json_decode($this->userConfig->config, true);
+        if(!$message){
             die;
         }
         $location = implode('', IP::ip2addr($request->getClientIp()));
