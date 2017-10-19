@@ -139,7 +139,7 @@ $("#btn-close-popup").click(function () {
     params.person = $("#person").data('values');
     var callback = function (data) {
         if(data.status === 1){
-            $.toptip('保存配置信息成功');
+            $.toptip('保存配置信息成功', 'success');
         }else{
             $.toptip('保存配置信息失败，请刷新页面重试', 'error');
         }
