@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserConfig;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BaseController extends Controller
 {
-    protected $userID, $user, $wechatUserInfo;
+    protected $userID, $user, $userConfig, $weChatUserInfo;
 
     /**
      * BaseController constructor.
@@ -16,15 +18,29 @@ class BaseController extends Controller
     function __construct(Request $request)
     {
         $this->middleware(function ($request, $next) {
-            $this->wechatUserInfo = session('wechat.oauth_user');
+            $this->weChatUserInfo = session('wechat.oauth_user');
             $openID = $this->wechatUserInfo['id'];
             $user = User::getUserByOpenID($openID);
-            if(!$user){
+            if($user){
+                $this->userConfig = UserConfig::getUserConfigByUserID($user->id);
+            }else{
+                DB::beginTransaction();
                 $user = new User();
                 $user->openID = $openID;
                 if(!$user->save()){
+                    DB::rollBack();
                     $this->error('读取用户信息出错');
                 }
+                $userConfig = new UserConfig();
+                $userConfig->userID = $user->id;
+                $defaultConfig = ['wechatAuth' => 0,'audioPlay' => 1,'person' => 0,'speed' => 5,'pitch' => 5,'volume' => 5];
+                $userConfig->config = json_encode($defaultConfig);
+                if(!$userConfig->save()){
+                    DB::rollBack();
+                    $this->error('读取用户信息出错');
+                }
+                DB::commit();
+                $this->userConfig = $userConfig;
             }
             $this->user = $user;
             $this->userID = $user['id'];
