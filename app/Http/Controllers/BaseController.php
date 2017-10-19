@@ -19,7 +19,7 @@ class BaseController extends Controller
     {
         // 开启微信授权
         $isAuth = $request->has('wechatAuth') && $request->get('wechatAuth') == 1;
-        if($isAuth){
+        if($request->ajax() && $isAuth){
             $this->middleware('wechat.oauth:snsapi_userinfo');
         }
         $this->middleware(function ($request, $next) use($isAuth){
