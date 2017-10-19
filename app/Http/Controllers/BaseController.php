@@ -11,21 +11,22 @@ class BaseController extends Controller
 
     /**
      * BaseController constructor.
+     * @param Request $request
      */
     function __construct(Request $request)
     {
         $this->middleware(function ($request, $next) {
             $this->wechatUserInfo = session('wechat.oauth_user');
-            dd(session('wechat.oauth_user'));
             $openID = $this->wechatUserInfo['id'];
             $user = User::getUserByOpenID($openID);
             if(!$user){
                 $user = new User();
                 $user->openID = $openID;
                 $user->save();
+                $user = $user->toArray();
             }
             $this->user = $user;
-            $this->userID = $user->id;
+            $this->userID = $user['id'];
             return $next($request);
         });
     }
