@@ -79,7 +79,11 @@
         
     | KEY  | 说明 |
     | ------------ | ------------ |
-    | SLACK_WEBHOOK_URL | Slack的WebHook地址，[点击生产](https://my.slack.com/services/new/incoming-webhook/) |
+    | SLACK_WEBHOOK_URL | Slack的WebHook地址，用于自动推送消息，[点击生成](https://my.slack.com/services/new/incoming-webhook/) |
+
+## 数据备份
+
+  默认的备份策略是凌晨 `1:50` 清理早期备份文件, 凌晨 `2:00` 生成新的备份，当前仅备份数据库，备份结果会通知到 `Slack` 上,所以请配置自己的 `Slack` 信息.
 
 ## 参考图
 
