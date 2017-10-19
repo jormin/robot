@@ -144,7 +144,6 @@ $("#btn-close-popup").click(function () {
     params.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
     params.person = $("#person").data('values');
     var callback = function (data) {
-        console.log(params);
         if(data.status === 1){
             $.toast('保存成功', function () {
                 if(data.data.auth === 1){
