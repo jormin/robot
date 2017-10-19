@@ -15,7 +15,7 @@ function robotReply() {
     if(!message){
         return;
     }
-    var params = {'message': message, 'userID': $("meta[name=uid]").val()};
+    var params = {'message': message};
     var userMessage = '<li class="user">'+message+'</li>';
     chatWrapDom.append(userMessage);
     messageInputDom.val('');

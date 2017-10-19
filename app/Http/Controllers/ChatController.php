@@ -15,11 +15,9 @@ class ChatController extends BaseController
      * 聊天界面
      */
     public function index(){
-        $user = session('wechat.oauth_user');
-        $userID = $user['id'];
         $app = new Application(config('wechat'));
         $wxJs = $app->js;
-        return view('chat.index', compact('userID', 'wxJs'));
+        return view('chat.index', compact('wxJs'));
     }
 
     /**
@@ -30,15 +28,14 @@ class ChatController extends BaseController
      */
     public function robot(Request $request){
         $message = $request->message;
-        $userID = $request->userID;
         $config = $request->config;
-        if(!$message || $userID || !$config){
+        if(!$message || !$config){
             die;
         }
         $location = implode('', IP::ip2addr($request->getClientIp()));
-        $response = TuLing::chat($message, $userID, $location);
+        $response = TuLing::chat($message, $this->userID, $location);
         if(in_array($response['code'], [100000, 200000, 302000, 308000])){
-            $return = BaiduSpeech::combine($response['text'], $userID, 'zh', $config['speed'], $config['pitch'], $config['volume'], $config['person']);
+            $return = BaiduSpeech::combine($response['text'], $this->userID, 'zh', $config['speed'], $config['pitch'], $config['volume'], $config['person']);
             if($return['success'] && $config['audioPlay'] == 1){
                 $response['audio'] = '/storage/'.ltrim($return['data'], 'public');
             }

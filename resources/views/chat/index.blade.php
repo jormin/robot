@@ -8,7 +8,6 @@
 	<!-- 为移动设备添加 viewport -->
 	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
 
-	<meta name="uid" value="{{$userID}}">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>{{config('app.name')}}</title>
 	<link rel="stylesheet" href="/css/app.css?{{ str_random(10) }}" media="screen" type="text/css" />
