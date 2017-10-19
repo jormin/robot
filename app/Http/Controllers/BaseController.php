@@ -54,13 +54,9 @@ class BaseController extends Controller
             }else{
                 DB::beginTransaction();
                 $user = new User();
-                if($isAuth){
-                    dd($userData);
-                    foreach ($userData as $key => $value){
-                        $user->$key = $value;
-                    }
+                foreach ($userData as $key => $value){
+                    $user->$key = $value;
                 }
-                dd($user);
                 if(!$user->save()){
                     DB::rollBack();
                     $this->error('读取用户信息出错');
