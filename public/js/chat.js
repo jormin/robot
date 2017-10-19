@@ -1,3 +1,6 @@
+$('form').submit(function () {
+    return false;
+});
 if($("#wechatAuth").is(':checked')){
     $("li.user:before").css('background-image', 'url('+wechatAvatar+')');
 }
@@ -152,5 +155,4 @@ $("#btn-close-popup").click(function () {
         }
     };
     requestAjax(params, 'post', '/user/config', callback, false);
-
 })
