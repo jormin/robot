@@ -23,6 +23,7 @@ class BaseController extends Controller
         }
         $this->middleware(function ($request, $next) {
             $this->weChatUserInfo = session('wechat.oauth_user');
+            dd($this->weChatUserInfo);
             $openID = $this->weChatUserInfo['id'];
             $user = User::getUserByOpenID($openID);
             if($user){
@@ -30,6 +31,7 @@ class BaseController extends Controller
             }else{
                 DB::beginTransaction();
                 $user = new User();
+                $user->openID = $openID;
                 $user->openID = $openID;
                 if(!$user->save()){
                     DB::rollBack();
