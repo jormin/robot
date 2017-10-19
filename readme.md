@@ -1,4 +1,6 @@
-![](https://qiniu.blog.lerzen.com/bcfaabd0-b4cd-11e7-9540-63cf6dc21be7.jpg)
+<div align="center">
+    <img src="https://qiniu.blog.lerzen.com/bcfaabd0-b4cd-11e7-9540-63cf6dc21be7.jpg" width=350>
+</div>
 
 ## 关于Robot
 
