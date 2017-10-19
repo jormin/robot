@@ -44,7 +44,7 @@ class BaseController extends Controller
             if($user){
                 if($isAuth){
                     foreach ($userData as $key => $value){
-                        $user->setAttribute($key, $value);
+                        $user->$key = $value;
                     }
                     if(!$user->save()){
                         $this->error('读取用户信息出错');
@@ -56,7 +56,7 @@ class BaseController extends Controller
                 $user = new User();
                 if($isAuth){
                     foreach ($userData as $key => $value){
-                        $user->setAttribute($key, $value);
+                        $user->$key = $value;
                     }
                 }
                 if(!$user->save()){
