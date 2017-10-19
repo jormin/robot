@@ -1,3 +1,5 @@
+![](https://qiniu.blog.lerzen.com/bcfaabd0-b4cd-11e7-9540-63cf6dc21be7.jpg)
+
 ## 关于Robot
 
 `Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，当前支持微信端语音输入，[在线体验](https://robot.lerzen.com/)。
