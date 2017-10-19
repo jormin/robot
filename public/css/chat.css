@@ -62,7 +62,7 @@ body {
   -moz-animation: show-chat-odd 0.15s 1 ease-in;
   -webkit-animation: show-chat-odd 0.15s 1 ease-in;
   float: right;
-  margin-right: 60px;
+  margin-right: 55px;
   color: #0AD5C1;
 }
 
@@ -82,7 +82,7 @@ body {
   -moz-animation: show-chat-even 0.15s 1 ease-in;
   -webkit-animation: show-chat-even 0.15s 1 ease-in;
   float: left;
-  margin-left: 60px;
+  margin-left: 55px;
   color: #0EC879;
 }
 
