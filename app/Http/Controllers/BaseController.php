@@ -17,10 +17,9 @@ class BaseController extends Controller
      */
     function __construct(Request $request)
     {
-        dd(1);
         // 开启微信授权
-        $isAuth = $request->has('wechatAuth') && $request->get('wechatAuth') == 1;
-        if($request->ajax() && $isAuth){
+        $isAuth = $request->isMethod('get') && $request->has('wechatAuth') && $request->get('wechatAuth') == 1;
+        if($isAuth){
             $this->middleware('wechat.oauth:snsapi_userinfo');
         }
         $this->middleware(function ($request, $next) use($isAuth){
