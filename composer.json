@@ -16,7 +16,8 @@
         "laravel/tinker": "~1.0",
         "orangehill/iseed": "^2.5",
         "overtrue/laravel-filesystem-qiniu": "^1.0",
-        "overtrue/laravel-wechat": "^3.1"
+        "overtrue/laravel-wechat": "^3.1",
+        "spatie/laravel-backup": "^5.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
