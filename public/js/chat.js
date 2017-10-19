@@ -1,4 +1,5 @@
-$('form').submit(function () {
+$("#setting-form").submit(function () {
+    alert(1);
     return false;
 });
 if($("#wechatAuth").is(':checked')){
