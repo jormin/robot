@@ -24,7 +24,6 @@ class BaseController extends Controller
         }
         $this->middleware(function ($request, $next) use($isAuth){
             $this->weChatUserInfo = session('wechat.oauth_user')['original'];
-            dd($this->weChatUserInfo);
             $openID = $this->weChatUserInfo['openid'];
             if($isAuth){
                 $userData = [
