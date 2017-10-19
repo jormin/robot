@@ -138,7 +138,7 @@ $("#btn-close-popup").click(function () {
     params.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
     params.person = $("#person").data('values');
     var callback = function (data) {
-        if(data.status != 1){
+        if(data.status !== 1){
             $.toast("保存配置信息失败，请刷新页面重试");
         }
     };
