@@ -1,3 +1,7 @@
+<?php
+	$persons = ['女声', '男声', '', '度逍遥', '度丫丫'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,41 +64,41 @@
 						<div class="weui-cell weui-cell_switch">
 							<div class="weui-cell__bd">使用微信头像</div>
 							<div class="weui-cell__ft">
-								<input class="weui-switch" name="wechatAuth" id="wechatAuth" type="checkbox">
+								<input class="weui-switch" name="wechatAuth" id="wechatAuth" type="checkbox" @if($config['wechatAuth'] === 1) checked @endif>
 							</div>
 						</div>
 
 						<div class="weui-cell weui-cell_switch">
 							<div class="weui-cell__bd">语音播放</div>
 							<div class="weui-cell__ft">
-								<input class="weui-switch" name="audioPlay" id="audioPlay" type="checkbox" checked>
+								<input class="weui-switch" name="audioPlay" id="audioPlay" type="checkbox"  @if($config['audioPlay'] === 1) checked @endif>
 							</div>
 						</div>
 
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="person" class="weui-label">声音</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input setting-select" name="person" id="person" type="text" value="女声" readonly="" data-values="0">
+								<input class="weui-input setting-select" name="person" id="person" type="text" value="{{$persons[$config['person']]}}" readonly="" data-values="{{$config['person']}}">
 							</div>
 						</div>
 
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="speed" class="weui-label">语速</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input setting-select" name="speed" id="speed" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input setting-select" name="speed" id="speed" type="text" value="{{$config['speed']}}" readonly="" data-values="{{$config['speed']}}">
 							</div>
 						</div>
 
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="pitch" class="weui-label">语调</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input setting-select" name="pitch" id="pitch" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input setting-select" name="pitch" id="pitch" type="text" value="{{$config['pitch']}}" readonly="" data-values="{{$config['pitch']}}">
 							</div>
 						</div>
 						<div class="weui-cell">
 							<div class="weui-cell__hd"><label for="volume" class="weui-label">音量</label></div>
 							<div class="weui-cell__bd">
-								<input class="weui-input setting-select" name="volume" id="volume" type="text" value="5" readonly="" data-values="5">
+								<input class="weui-input setting-select" name="volume" id="volume" type="text" value="{{$config['volume']}}" readonly="" data-values="{{$config['volume']}}">
 							</div>
 						</div>
 					</div>
