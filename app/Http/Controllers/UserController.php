@@ -17,7 +17,7 @@ class UserController extends BaseController
         if(!$config || !is_array($config)){
             $this->error('参数错误');
         }
-        $auth = (json_decode($this->userConfig->config, true)['wechatAuth'] == 0) && ($config['wechatAuth'] == 1) ? 1 : 0;
+        $auth = (!$this->user->avatar && json_decode($this->userConfig->config, true)['wechatAuth'] == 0) && ($config['wechatAuth'] == 1) ? 1 : 0;
         $this->userConfig->config = json_encode($config);
         if($this->userConfig->save()){
             $this->success(['auth'=>$auth]);
