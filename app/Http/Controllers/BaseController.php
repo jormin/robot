@@ -59,6 +59,7 @@ class BaseController extends Controller
                         $user->$key = $value;
                     }
                 }
+                dd($user);
                 if(!$user->save()){
                     DB::rollBack();
                     $this->error('读取用户信息出错');
