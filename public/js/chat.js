@@ -139,12 +139,13 @@ $("#btn-close-popup").click(function () {
     params.person = $("#person").data('values');
     var callback = function (data) {
         if(data.status === 1){
-            $.toptip('保存配置信息成功', 'success');
-            if(data.auth === 1){
-                window.location.href = domain+'?wechatAuth=1';
-            }
+            $.toast('保存成功', function () {
+                if(data.auth === 1){
+                    window.location.href = domain+'?wechatAuth=1';
+                }
+            });
         }else{
-            $.toptip('保存配置信息失败，请刷新页面重试', 'error');
+            $.toast('保存失败', 'forbidden');
         }
     };
     requestAjax(params, 'post', '/user/config', callback, false);
