@@ -16,10 +16,13 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id')->comment('主键ID');
             $table->string('openID')->comment('微信OpenID');
-            $table->string('name')->nullable()->comment('姓名');
             $table->string('nickname')->nullable()->comment('昵称');
             $table->string('avatar')->nullable()->comment('头像');
-            $table->string('email')->unique()->nullable()->comment('邮箱');
+            $table->tinyInteger('sex')->nullable()->comment('性别');
+            $table->string('country')->nullable()->comment('国家');
+            $table->string('province')->nullable()->comment('省份');
+            $table->string('city')->nullable()->comment('城市');
+            $table->string('language')->nullable()->comment('语言');
             $table->timestamps();
         });
     }

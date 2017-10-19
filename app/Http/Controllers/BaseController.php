@@ -18,21 +18,42 @@ class BaseController extends Controller
     function __construct(Request $request)
     {
         // 开启微信授权
-        if($request->has('wechatAuth') && $request->wechatAuth == 1){
+        $isAuth = $request->has('wechatAuth') && $request->wechatAuth == 1;
+        if($isAuth){
             $this->middleware('wechat.oauth:snsapi_userinfo');
         }
-        $this->middleware(function ($request, $next) {
-            $this->weChatUserInfo = session('wechat.oauth_user');
-            dd($this->weChatUserInfo);
-            $openID = $this->weChatUserInfo['id'];
+        $this->middleware(function ($request, $next) use($isAuth){
+            $this->weChatUserInfo = session('wechat.oauth_user')['original'];
+            $openID = $this->weChatUserInfo['openid'];
+            $userData = [
+                'openID' => $this->weChatUserInfo['openid'],
+                'nickname' => $this->weChatUserInfo['nickname'],
+                'avatar' => $this->weChatUserInfo['headimgurl'],
+                'sex' => $this->weChatUserInfo['sex'],
+                'country' => $this->weChatUserInfo['country'],
+                'province' => $this->weChatUserInfo['province'],
+                'city' => $this->weChatUserInfo['city'],
+                'language' => $this->weChatUserInfo['language']
+            ];
             $user = User::getUserByOpenID($openID);
             if($user){
+                if($isAuth){
+                    foreach ($userData as $key => $value){
+                        $user->setAttribute($key, $value);
+                    }
+                    if(!$user->save()){
+                        $this->error('读取用户信息出错');
+                    }
+                }
                 $this->userConfig = UserConfig::getUserConfigByUserID($user->id);
             }else{
                 DB::beginTransaction();
                 $user = new User();
-                $user->openID = $openID;
-                $user->openID = $openID;
+                if($isAuth){
+                    foreach ($userData as $key => $value){
+                        $user->setAttribute($key, $value);
+                    }
+                }
                 if(!$user->save()){
                     DB::rollBack();
                     $this->error('读取用户信息出错');
