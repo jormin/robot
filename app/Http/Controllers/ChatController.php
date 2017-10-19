@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Record;
 use EasyWeChat\Foundation\Application;
 use Illuminate\Http\Request;
 use Jormin\BaiduSpeech\BaiduSpeech;
@@ -43,6 +44,13 @@ class ChatController extends BaseController
                 $response['audio'] = config('filesystems.disks.qiniu.domain').$fileName;
             }
         }
+        $record = new Record();
+        $record->userID = $this->userID;
+        $record->message = $message;
+        $record->reply = $response['text'];
+        $record->audio = array_key_exists('audio', $response) ? $response['audio'] : null;
+        $record->config = $this->userConfig->config;
+        $record->save();
         return $response;
     }
 }
