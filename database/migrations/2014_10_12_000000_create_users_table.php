@@ -14,12 +14,12 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('openID');
-            $table->string('name')->nullable();
-            $table->string('nickname')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('email')->unique()->nullable();
+            $table->increments('id')->comment('主键ID');
+            $table->string('openID')->comment('微信OpenID');
+            $table->string('name')->nullable()->comment('姓名');
+            $table->string('nickname')->nullable()->comment('昵称');
+            $table->string('avatar')->nullable()->comment('头像');
+            $table->string('email')->unique()->nullable()->comment('邮箱');
             $table->timestamps();
         });
     }
