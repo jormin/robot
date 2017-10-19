@@ -134,7 +134,7 @@ $(".setting-select").click(function () {
 $("#btn-close-popup").click(function () {
     $.closePopup();
     var params = $("#setting-form").serializeJson();
-    params.wechatAuth = $("#wechatAuth").data('values');
+    params.wechatAuth = $("#wechatAuth").is(':checked') ? 1 : 0;
     params.audioPlay = $("#audioPlay").is(':checked') ? 1 : 0;
     params.person = $("#person").data('values');
     var callback = function (data) {
