@@ -18,7 +18,7 @@ class UserController extends BaseController
             $this->error('参数错误');
         }
         $this->userConfig->config = json_encode($config);
-        if($this->user->save()){
+        if($this->userConfig->save()){
             $this->success();
         }else{
             $this->fail();
