@@ -1,6 +1,6 @@
 ## 关于Robot
 
-`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，[在线体验](https://robot.lerzen.com/)，当前支持微信端语音输入。
+`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，当前支持微信端语音输入，[在线体验](https://robot.lerzen.com/)。
 
 ## 安装配置
 
@@ -37,13 +37,13 @@
     
     [图灵机器人](http://www.tuling123.com/) 相关：
         
-    | KEY  | 说明|
+    | KEY  | 说明 |
     | ------------ | ------------ |
     | TULING_API_KEY | 图灵机器人ApiKey |
     
     [微信公众平台](https://mp.weixin.qq.com/) 相关：
         
-    | KEY  | 说明|
+    | KEY  | 说明 |
     | ------------ | ------------ |
     | WECHAT_APPID | 微信公众平台开发者ID |
     | WECHAT_SECRET | 微信公众平台开发者密码 |
@@ -53,7 +53,7 @@
     
     [百度AI开放平台](https://cloud.baidu.com/) 相关：
         
-    | KEY  | 说明|
+    | KEY  | 说明 |
     | ------------ | ------------ |
     | BAIDU_APP_ID | 百度应用AppID |
     | BAIDU_API_KEY | 百度应用ApiKey |
@@ -61,7 +61,7 @@
     
     [七牛云存储](https://portal.qiniu.com/) 相关：
         
-    | KEY  | 说明|
+    | KEY  | 说明 |
     | ------------ | ------------ |
     | QINIU_ACCESS_KEY | 七牛AccessKey |
     | QINIU_SECRET_KEY | 七牛SecretKey |
@@ -70,10 +70,16 @@
     
     文件存储相关：
         
-    | KEY  | 说明|
+    | KEY  | 说明 |
     | ------------ | ------------ |
     | FILESYSTEM_DRIVER | 文件默认存储驱动 |
     | FILESYSTEM_CLOUD | 文件默认云存储驱动 |
+    
+    [Slack](https://www.slack.com/) 相关：
+        
+    | KEY  | 说明 |
+    | ------------ | ------------ |
+    | SLACK_WEBHOOK_URL | Slack的WebHook地址，[点击生产](https://my.slack.com/services/new/incoming-webhook/) |
 
 ## 参考图
 
