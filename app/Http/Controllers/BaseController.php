@@ -17,6 +17,10 @@ class BaseController extends Controller
      */
     function __construct(Request $request)
     {
+        // 开启微信授权
+        if($request->wechatAuth){
+            $this->middleware('wechat.oauth:snsapi_userinfo');
+        }
         $this->middleware(function ($request, $next) {
             $this->weChatUserInfo = session('wechat.oauth_user');
             $openID = $this->weChatUserInfo['id'];

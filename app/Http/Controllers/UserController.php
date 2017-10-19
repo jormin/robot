@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Overtrue\LaravelWechat\Middleware\OAuthAuthenticate;
 
 class UserController extends BaseController
 {
@@ -29,8 +30,5 @@ class UserController extends BaseController
      *
      */
     public function index(){
-        $user = session('wechat.oauth_user');
-        dd($user);
-        dd($this->user);
     }
 }
