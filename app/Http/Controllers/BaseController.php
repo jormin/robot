@@ -14,19 +14,19 @@ class BaseController extends Controller
      */
     function __construct(Request $request)
     {
-        $this->middleware('web');
-        $this->middleware('wechat.oauth');
-        
-        $this->wechatUserInfo = session('wechat.oauth_user');
-        dd(session('wechat.oauth_user'));
-        $openID = $this->wechatUserInfo['id'];
-        $user = User::getUserByOpenID($openID);
-        if(!$user){
-            $user = new User();
-            $user->openID = $openID;
-            $user->save();
-        }
-        $this->user = $user;
-        $this->userID = $user->id;
+        $this->middleware(function ($request, $next) {
+            $this->wechatUserInfo = session('wechat.oauth_user');
+            dd(session('wechat.oauth_user'));
+            $openID = $this->wechatUserInfo['id'];
+            $user = User::getUserByOpenID($openID);
+            if(!$user){
+                $user = new User();
+                $user->openID = $openID;
+                $user->save();
+            }
+            $this->user = $user;
+            $this->userID = $user->id;
+            return $next($request);
+        });
     }
 }
