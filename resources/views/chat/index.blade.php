@@ -64,14 +64,14 @@
 						<div class="weui-cell weui-cell_switch">
 							<div class="weui-cell__bd">使用微信头像</div>
 							<div class="weui-cell__ft">
-								<input class="weui-switch" name="wechatAuth" id="wechatAuth" type="checkbox" @if($config['wechatAuth'] === 1) checked @endif>
+								<input class="weui-switch" name="wechatAuth" id="wechatAuth" type="checkbox" @if($config['wechatAuth'] == 1) checked @endif>
 							</div>
 						</div>
 
 						<div class="weui-cell weui-cell_switch">
 							<div class="weui-cell__bd">语音播放</div>
 							<div class="weui-cell__ft">
-								<input class="weui-switch" name="audioPlay" id="audioPlay" type="checkbox"  @if($config['audioPlay'] === 1) checked @endif>
+								<input class="weui-switch" name="audioPlay" id="audioPlay" type="checkbox"  @if($config['audioPlay'] == 1) checked @endif>
 							</div>
 						</div>
 
