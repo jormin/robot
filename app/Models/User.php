@@ -53,10 +53,10 @@ class User extends Authenticatable
      * 根据OPENID查询用户
      *
      * @param $openID
-     * @return array|null
+     * @return \Illuminate\Database\Eloquent\Model|null|static
      */
     public static function getUserByOpenID($openID){
         $user = self::query()->where('openID', $openID)->first();
-        return $user ? $user->toArray() : null;
+        return $user;
     }
 }

@@ -14,8 +14,14 @@ class UserController extends BaseController
      */
     public function config(Request $request){
         $config = $request->config;
-        if(!$config){
-            die;
+        if(!$config || !is_array($config)){
+            $this->error('参数错误');
+        }
+        $this->user->config = json_encode($request->config);
+        if($this->user->save()){
+            $this->success();
+        }else{
+            $this->fail();
         }
     }
 
