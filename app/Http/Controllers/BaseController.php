@@ -24,10 +24,11 @@ class BaseController extends Controller
         }
         $this->middleware(function ($request, $next) use($isAuth){
             $this->weChatUserInfo = session('wechat.oauth_user')['original'];
+            dd($this->weChatUserInfo);
             $openID = $this->weChatUserInfo['openid'];
             if($isAuth){
                 $userData = [
-                    'openID' => $this->weChatUserInfo['openid'],
+                    'openID' => $openID,
                     'nickname' => $this->weChatUserInfo['nickname'],
                     'avatar' => $this->weChatUserInfo['headimgurl'],
                     'sex' => $this->weChatUserInfo['sex'],
@@ -37,7 +38,7 @@ class BaseController extends Controller
                     'language' => $this->weChatUserInfo['language']
                 ];
             }else{
-                $userData = ['openID' => $this->weChatUserInfo['openid']];
+                $userData = ['openID' => $openID];
             }
 
             $user = User::getUserByOpenID($openID);
