@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Overtrue\LaravelWechat\Middleware\OAuthAuthenticate;
 
 class UserController extends BaseController
 {
