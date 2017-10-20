@@ -4,7 +4,21 @@
 
 ## 关于Robot
 
-`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，当前支持微信端语音输入，[在线体验](https://robot.lerzen.com/)。
+`Robot` 是一个机器人自动聊天项目，采用 [图灵](http://www.tuling123.com/) 官方的Api接口，当前微信端支持语音输入，可以扫上面二维码体验下,喜欢的话在 [项目主页](https://github.com/jormin/robot) 上留个 `Star` 吧。
+
+## 使用扩展
+
+项目使用了下面几个扩展，各位看官觉得不错的麻烦异步项目主页留个 `Star` 吧。
+
+- 微信相关: [overtrue/laravel-wechat](https://github.com/overtrue/laravel-wechat)
+	
+- 七牛云存储: [overtrue/laravel-filesystem-qiniu](https://github.com/overtrue/laravel-filesystem-qiniu)
+	
+- 百度语音合成: [jormin/laravel-baidu-speech](https://github.com/jormin/laravel-baidu-speech)
+	
+- 图灵机器人: [jormin/laravel-tuling](https://github.com/jormin/laravel-tuling)
+	
+- IP地理位置解析: [jormin/laravel-ip](https://github.com/jormin/laravel-ip)
 
 ## 安装配置
 
